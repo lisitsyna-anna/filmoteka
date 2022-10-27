@@ -1,2 +1,14 @@
 @import './common';
 @import './example';
+
+@import './components/container';
+@import './components/logo';
+@import './components/modal-movie';
+@import './components/pagination';
+@import './components/modal-team';
+
+@import './layout/main-header';
+@import './layout/gallery';
+@import './layout/library-header';
+@import './layout/library-gallery';
+@import './layout/footer';
