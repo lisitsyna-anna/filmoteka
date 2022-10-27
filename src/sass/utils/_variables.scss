@@ -1,0 +1,25 @@
+// Main Colors
+$color-accent: #ff6b01;
+$color-accent-secondary: #ff001b;
+
+// Texts
+$color-text: #000000;
+$color-text-light: #545454;
+$color-text-lighter: #ffffff;
+
+// Borders
+$color-border: #ffffff;
+$accent-primary-border: $color-accent;
+$accent-secondary-border: $color-accent-secondary;
+
+// Backgrounds
+$bg-body: #ffffff;
+
+// Typography
+$font-stack: 'Roboto', sans-serif; // User Font Family
+$font-size: 12px; // Body Font Size
+$line-height: 1.33; // Document Line Height
+
+// Transitions
+$transition-duration: 250ms;
+$transition-animation: cubic-bezier(0.4, 0, 0.2, 1);

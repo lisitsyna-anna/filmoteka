@@ -1,1 +1,8 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+@import './utils/variables';
+@import './utils/mixins';
+@import './utils/classes';
+
+@import './base/reset';
+@import './base/typography';
