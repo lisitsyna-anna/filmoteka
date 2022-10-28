@@ -1,0 +1,134 @@
+.header {
+  padding: 40px 0 92px 0;
+  background-image: url(../images/main-header/main-header-bg-mobile-1x.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #c4c4c4;
+  @include retina {
+    background-image: url(../images/main-header/main-header-bg-mobile-2x.jpg);
+  }
+
+  @include tablet {
+    padding: 40px 0 80px 0;
+    background-image: url(../images/main-header/main-header-bg-tablet-1x.jpg);
+    @include retina {
+      background-image: url(../images/main-header/main-header-bg-tablet-2x.jpg);
+    }
+  }
+
+  @include desktop {
+    background-image: url(../images/main-header/main-header-bg-desktop-1x.jpg);
+    @include retina {
+      background-image: url(../images/main-header/main-header-bg-desktop-2x.jpg);
+    }
+  }
+}
+
+.header__nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 54px;
+  @include tablet {
+    margin-bottom: 40px;
+  }
+}
+
+.header__list {
+  display: flex;
+}
+
+.header__item {
+  margin-left: 40px;
+}
+
+.header__item-link {
+  @include font($font-size, 1.67, 500, null);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $color-text-lighter;
+  position: relative;
+  transition: text-shadow $transition-duration $transition-animation;
+  &:hover {
+    text-shadow: 1px 1px 2px $color-accent-secondary, 0 0 1em $color-text-light,
+      0 0 0.2em $color-text-lighter;
+  }
+}
+
+.header__item-link--current {
+  border-bottom: 3px solid $color-accent-secondary;
+}
+
+.header__form {
+  display: flex;
+  justify-content: center;
+}
+
+.header__form-search {
+  position: relative;
+  transition: stroke $transition-duration $transition-animation;
+  &:hover .header__form-icon {
+    stroke: $color-accent-secondary;
+  }
+}
+
+.header__form-input {
+  width: 280px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 0.5px solid $color-border;
+  color: $color-text-lighter;
+  transition: color $transition-duration $transition-animation;
+  &:focus-within {
+    outline: none;
+  }
+  &:not(:placeholder-shown) {
+    @include font(14px, 1.67, 400, null);
+    color: $color-text-lighter;
+  }
+  &::placeholder {
+    @include font(14px, 1.67, 400, null);
+    color: $color-text-lighter;
+  }
+  &:hover::-webkit-input-placeholder {
+    color: $color-accent-secondary;
+  }
+  &:hover {
+    border-bottom: 0.5px solid $accent-secondary-border;
+  }
+  @include tablet {
+    width: 336px;
+  }
+  @include desktop {
+    width: 394px;
+  }
+}
+
+.header__search-btn {
+  position: absolute;
+  position: absolute;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: stroke $transition-duration $transition-animation;
+  &:hover .header__form-icon,
+  &:focus .header__form-icon {
+    stroke: $color-accent-secondary;
+  }
+}
+
+.header__form-icon {
+  fill: transparent;
+  stroke: $color-text-lighter;
+}
