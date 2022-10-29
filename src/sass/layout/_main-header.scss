@@ -28,8 +28,7 @@
 }
 
 .header__nav-container {
-  display: flex;
-  align-items: center;
+  @include centeredFlex();
   justify-content: space-between;
   margin-bottom: 54px;
   @include tablet {
@@ -38,7 +37,7 @@
 }
 
 .header__list {
-  display: flex;
+  @include centeredFlex();
 }
 
 .header__item {
@@ -47,8 +46,7 @@
 
 .header__item-link {
   @include font($font-size, 1.67, 500, null);
-  display: flex;
-  align-items: center;
+  @include centeredFlex();
   text-align: center;
   text-transform: uppercase;
   color: $color-text-lighter;
@@ -65,8 +63,7 @@
 }
 
 .header__form {
-  display: flex;
-  justify-content: center;
+  @include centeredFlex();
 }
 
 .header__form-search {
@@ -111,7 +108,6 @@
 }
 
 .header__search-btn {
-  position: absolute;
   position: absolute;
   right: 1px;
   top: 50%;
