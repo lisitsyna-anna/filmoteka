@@ -1,0 +1,87 @@
+.gallery {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  @include tablet {
+    gap: 32px;
+  }
+
+  @include desktop {
+    column-gap: 16px;
+  }
+}
+.gallery-list__item {
+  width: 100%;
+
+  @include tablet {
+    width: calc((100% - 32px) / 2);
+  }
+
+  @include desktop {
+    width: calc((100% - 32px) / 3);
+  }
+}
+
+.gallery-list__poster {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.gallery-list__title {
+  @include font($font-size, 1.16, 500);
+  color: $color-text;
+  text-transform: uppercase;
+  margin-top: 10px;
+
+  @include tablet {
+    @include font($font-size, $line-height, 500);
+    margin-top: 8px;
+  }
+
+  @include desktop {
+    @include font(20px, 1.2, 500);
+    margin-top: 12px;
+  }
+}
+.gallery-list__genres {
+  position: relative;
+  display: inline-block;
+  color: $color-accent;
+  @include font($font-size, 1.16, 500);
+  @include tablet {
+    @include font($font-size, $line-height, 500);
+  }
+
+  @include desktop {
+    @include font(20px, 1.2, 500);
+  }
+}
+
+.gallery-list__genres::after {
+  position: absolute;
+  content: '';
+  background-color: $color-accent;
+  height: 100%;
+  width: 1.5px;
+  right: -5px;
+}
+
+.gallery-list__year {
+  display: inline-block;
+  margin-left: 5px;
+  color: $color-accent;
+  @include font($font-size, 1.16, 500);
+  @include tablet {
+    @include font($font-size, $line-height, 500);
+  }
+
+  @include desktop {
+    @include font(20px, 1.2, 500);
+  }
+}
