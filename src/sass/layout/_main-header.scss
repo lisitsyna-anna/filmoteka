@@ -1,6 +1,6 @@
 .header {
   padding: 40px 0 92px 0;
-  background-image: url(../images/main-header/main-header-bg-mobile-1x.jpg);
+  background-image: url(../images/main-header-bg-mobile-1x.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -8,21 +8,21 @@
   margin-right: auto;
   background-color: #c4c4c4;
   @include retina {
-    background-image: url(../images/main-header/main-header-bg-mobile-2x.jpg);
+    background-image: url(../images/main-header-bg-mobile-2x.jpg);
   }
 
   @include tablet {
     padding: 40px 0 80px 0;
-    background-image: url(../images/main-header/main-header-bg-tablet-1x.jpg);
+    background-image: url(../images/main-header-bg-tablet-1x.jpg);
     @include retina {
-      background-image: url(../images/main-header/main-header-bg-tablet-2x.jpg);
+      background-image: url(../images/main-header-bg-tablet-2x.jpg);
     }
   }
 
   @include desktop {
-    background-image: url(../images/main-header/main-header-bg-desktop-1x.jpg);
+    background-image: url(../images/main-header-bg-desktop-1x.jpg);
     @include retina {
-      background-image: url(../images/main-header/main-header-bg-desktop-2x.jpg);
+      background-image: url(../images/main-header-bg-desktop-2x.jpg);
     }
   }
 }
