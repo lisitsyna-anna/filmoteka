@@ -1,0 +1,28 @@
+.logo {
+  @include centeredFlex();
+  gap: 10px;
+  transition: text-shadow $transition-duration $transition-animation,
+    filter $transition-duration $transition-animation;
+  &:hover {
+    text-shadow: 1px 1px 2px $color-accent-secondary, 0 0 1em $color-text-light,
+      0 0 0.2em $color-text-lighter;
+  }
+  &:hover .logo__icon {
+    filter: drop-shadow(0 0 0.2em $color-accent-secondary);
+  }
+}
+
+.logo__icon {
+  fill: transparent;
+  stroke: $color-text-lighter;
+}
+
+.logo__text {
+  @include font(30px, 1.67, 500, null);
+  display: none;
+  color: $color-text-lighter;
+  @include tablet {
+    @include centeredFlex();
+    text-align: center;
+  }
+}
