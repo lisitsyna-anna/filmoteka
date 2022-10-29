@@ -5,14 +5,18 @@
   padding-right: 20px;
 
   @include mobile {
+    width: 320px;
+  }
+
+  @media screen and (min-width: 480px) {
     width: 480px;
   }
   @include tablet {
     width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   @include desktop {
     max-width: 1280px;
-    padding-left: 15px;
-    padding-right: 15px;
   }
 }
