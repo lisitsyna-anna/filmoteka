@@ -11,5 +11,5 @@ export const refs = {
   wrapperBtnUP: document.querySelector('.btn-up-wrapper'),
   btnUp: document.querySelector('.btn-up-wrapper__btn'),
   body: document.querySelector('body'),
-
+  link: document.querySelector('.footer__link'),
 };
