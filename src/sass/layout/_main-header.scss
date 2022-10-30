@@ -1,18 +1,19 @@
 .header {
-  padding: 40px 0 92px 0;
+  padding: 40px 0 45px 0;
   background-image: url(../images/main-header-bg-mobile-1x.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: #c4c4c4;
+  height: 230px;
+  background-color: $bg-body;
   @include retina {
     background-image: url(../images/main-header-bg-mobile-2x.jpg);
   }
 
   @include tablet {
-    padding: 40px 0 80px 0;
+    height: 216px;
     background-image: url(../images/main-header-bg-tablet-1x.jpg);
     @include retina {
       background-image: url(../images/main-header-bg-tablet-2x.jpg);
@@ -27,6 +28,10 @@
   }
 }
 
+.header__section {
+  position: relative;
+}
+
 .header__nav-container {
   @include centeredFlex();
   justify-content: space-between;
@@ -38,19 +43,19 @@
 
 .header__list {
   @include centeredFlex();
-}
-
-.header__item {
-  margin-left: 40px;
+  align-items: baseline;
+  gap: 40px;
 }
 
 .header__item-link {
-  @include font($font-size, 1.67, 500, null);
+  @include font($font-size, 1.17, 500, null);
   @include centeredFlex();
   text-align: center;
   text-transform: uppercase;
   color: $color-text-lighter;
   position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
   transition: text-shadow $transition-duration $transition-animation;
   &:hover {
     text-shadow: 1px 1px 2px $color-accent-secondary, 0 0 1em $color-text-light,
@@ -58,8 +63,14 @@
   }
 }
 
-.header__item-link--current {
-  border-bottom: 3px solid $color-accent-secondary;
+.header__item-link.current::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: $color-accent-secondary;
+  display: block;
+  bottom: 3px;
 }
 
 .header__form {
@@ -86,11 +97,11 @@
     outline: none;
   }
   &:not(:placeholder-shown) {
-    @include font(14px, 1.67, 400, null);
+    @include font(14px, 1.17, 400, null);
     color: $color-text-lighter;
   }
   &::placeholder {
-    @include font(14px, 1.67, 400, null);
+    @include font(14px, 1.17, 400, null);
     color: $color-text-lighter;
   }
   &:hover::-webkit-input-placeholder {
@@ -127,4 +138,14 @@
 .header__form-icon {
   fill: transparent;
   stroke: $color-text-lighter;
+}
+
+.header__notification {
+  @include font(14px, 1.17, 400, null);
+  @include centeredFlex;
+  color: $color-accent-secondary;
+  margin-top: 16px;
+  @include tablet {
+    margin-top: 20px;
+  }
 }
