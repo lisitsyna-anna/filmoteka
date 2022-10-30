@@ -10,4 +10,6 @@ export const refs = {
   btnAddWatched: document.querySelector('.js-add-watched'),
   btnAddqueue: document.querySelector('js-add-queue'),
 
+  wrapperBtnUP: document.querySelector('.btn-up-wrapper'),
+  btnUp: document.querySelector('.btn-up-wrapper__btn'),
 };
