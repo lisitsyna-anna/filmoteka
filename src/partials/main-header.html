@@ -10,14 +10,12 @@
       <nav class="header__nav">
         <ul class="header__list">
           <li class="header__item">
-            <a
-              href="/src/index.html"
-              class="header__item-link header__item-link--current"
-              >home</a
-            >
+            <a href="/src/index.html" class="header__item-link current">home</a>
           </li>
           <li class="header__item">
-            <a href="/src/library.html" class="header__item-link">my library</a>
+            <a href="/src/library.html" class="header__item-link js-library"
+              >my library</a
+            >
           </li>
         </ul>
       </nav>
@@ -38,15 +36,19 @@
         </button>
       </div>
     </form>
-    <p
-      class="header__notification"
-      style="
-        color: #ff001b;
-        text-align: center;
-        margin-top: 20px;
-        font-size: 14px;
-        line-height: 16px;
-      "
-    ></p>
+    <p class="header__notification"></p>
+
+    <!-- Theme-switcher -->
+    <div class="theme-switcher">
+      <div class="theme-switcher__thumb"></div>
+      <button class="theme-switcher__btn">
+        <svg class="theme-switcher__icon" width="16" height="16">
+          <use href="/src/images/icons.svg#icon-moon"></use>
+        </svg>
+        <svg class="theme-switcher__icon" width="16" height="16">
+          <use href="/src/images/icons.svg#icon-sun"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
