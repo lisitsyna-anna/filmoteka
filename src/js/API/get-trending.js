@@ -53,7 +53,9 @@ export async function renderTrendingMovies() {
 
     const markup = [...moviesList].map(createMarkup).join('');
 
-    refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
+    if (refs.galleryMovies) {
+      refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
+    }
   } catch (error) {
     console.log('Something wrong with API', error.message);
   }

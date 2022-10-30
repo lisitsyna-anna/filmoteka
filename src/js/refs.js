@@ -4,6 +4,10 @@ export const refs = {
   modal: document.querySelector('.modal__content'),
   modalBackdrop: document.querySelector('.backdrop'),
   closeModalBtn: document.querySelector('.modal-close'),
+
+  notification: document.querySelector('.header__notification'),
+
   btnAddWatched: document.querySelector('.js-add-watched'),
   btnAddqueue: document.querySelector('js-add-queue'),
+
 };
