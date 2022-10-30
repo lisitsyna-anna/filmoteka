@@ -5,6 +5,8 @@ import { renderModalMovie } from './js/API/get-movie-info';
 
 import { onFormSubmit } from './js/gallery';
 
+import { onOpenQueueLibrary } from './js/queue-library';
+
 ///Запуск спінера при завантаженні
 spinnerPlay();
 window.addEventListener('load', spinnerStop);
