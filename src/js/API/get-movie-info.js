@@ -90,9 +90,13 @@ function createMarkupModal({
           <b class="title-about__modal">ABOUT</b>
           <p class="about-text__modal about-scrollbar">${overview}
           </p>
+          <div class="buttons-modal">
+            <button type="button" class="button-watched__modal js-add-watched">
+                ADD TO WATCHED
+            </button>
+            <button type="button" class="button-queue__modal js-add-queue">ADD TO QUEUE</button>
         </div>
-      </div>
-    </div>`;
+        </div>`;
 }
 
 function offCloseModal() {
