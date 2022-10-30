@@ -1,9 +1,5 @@
 import { refs } from './refs';
 
-window.addEventListener('scroll', function (event) {
-  scrollFunction();
-});
-
 export function scrollFunction() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
     refs.wrapperBtnUP.style.display = 'block';
