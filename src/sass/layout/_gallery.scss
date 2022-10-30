@@ -3,7 +3,7 @@
   padding-bottom: 40px;
 }
 
-.gallery-list {
+.gallery__list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -16,7 +16,7 @@
     column-gap: 16px;
   }
 }
-.gallery-list__item {
+.frame {
   width: 100%;
 
   @include tablet {
@@ -28,12 +28,12 @@
   }
 }
 
-.gallery-list__poster {
+.frame__poster {
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
-.gallery-list__title {
+.frame__title {
   @include font($font-size, 1.16, 500);
   color: $color-text;
   text-transform: uppercase;
@@ -49,7 +49,7 @@
     margin-top: 12px;
   }
 }
-.gallery-list__genres {
+.frame__genres {
   position: relative;
   display: inline-block;
   color: $color-accent;
@@ -63,7 +63,7 @@
   }
 }
 
-.gallery-list__genres::after {
+.frame__genres::after {
   position: absolute;
   content: '';
   background-color: $color-accent;
@@ -72,7 +72,7 @@
   right: -5px;
 }
 
-.gallery-list__year {
+.frame__year {
   display: inline-block;
   margin-left: 5px;
   color: $color-accent;
