@@ -35,15 +35,13 @@ export function createMarkup({
   const genres = getGenres(genresList, genreIds);
 
   return `
-      <li class="gallery-list__item" data-id="${id}" >
+      <li class="frame" data-id="${id}" >
           <img data-id="${id}" src="${
     IMAGE_URL + posterPath
-  }" alt="${title}" class="gallery-list__poster" loading="lazy"  />
-          <p class="gallery-list__title">${title}</p>
-          <p class="gallery-list__genres">${genres}</p>
-          <p class="gallery-list__year">${new Date(
-            releaseDate
-          ).getFullYear()}</p>
+  }" alt="${title}" class="frame__poster" loading="lazy"/>
+          <p class="frame__title">${title}</p>
+          <p class="frame__genres">${genres}</p>
+          <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
       </li>
       `;
 }
