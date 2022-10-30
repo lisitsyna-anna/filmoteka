@@ -36,9 +36,9 @@ export function createMarkup({
 
   return `
       <li class="frame" data-id="${id}" >
-          <img src="${
-            IMAGE_URL + posterPath
-          }" alt="${title}" class="frame__poster" loading="lazy"/>
+          <img data-id="${id}" src="${
+    IMAGE_URL + posterPath
+  }" alt="${title}" class="frame__poster" loading="lazy"/>
           <p class="frame__title">${title}</p>
           <p class="frame__genres">${genres}</p>
           <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
