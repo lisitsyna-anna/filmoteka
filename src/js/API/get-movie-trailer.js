@@ -7,10 +7,6 @@ axios.defaults.params = {
   api_key: KEY_API,
 };
 
-// const movieId = '550';
-
-// const watchTrailerBtnRef = document.querySelector('.watch-trailer-btn');
-
 const trailerPlayerRef = document.querySelector('.modal-trailer');
 
 async function fetchMovieTrailer(movieId) {
@@ -41,8 +37,6 @@ export async function renderTrailerBtn(movieId, selector) {
   selector.classList.remove('is-hidden');
 }
 
-// цю функцію вова повинен виклакати при рендері своєї модалки
-
 // /-------------------------------------/
 
 const cardRef = document.querySelector('.modal__content');
@@ -52,18 +46,14 @@ cardRef.addEventListener('click', onCliсkBtnWatch);
 export async function onCliсkBtnWatch(event) {
   try {
     if (event.target.nodeName !== 'BUTTON') {
-      console.log('кнопки нет');
       return;
     }
 
-    console.log('кнопка є ');
     const filmId = event.target.dataset.id;
 
     const results = await fetchMovieTrailer(filmId);
-    console.log(results);
 
     const youtubeKey = results[0].key;
-    console.log(youtubeKey);
 
     renderTrailer(youtubeKey);
     showTrailerWindow();
