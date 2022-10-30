@@ -1,0 +1,75 @@
+// .backdrop.is-hidden {
+//   opacity: 0;
+//   pointer-events: none;
+//   visibility: hidden;
+// }
+
+body.is-open {
+  overflow: hidden;
+}
+
+// .watch-trailer-btn {
+//   position: absolute;
+//   top: 10px;
+//   left: 10px;
+
+//   width: 100%-30px;
+//   height: 50px;
+
+//   border-radius: 16px;
+//   background-color: #f61c0d;
+//   color: beige;
+//   /* border: solid 1px #f61c0d; */
+
+//   cursor: pointer;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .watch-trailer-btn:hover {
+//   border: solid 1px #ff1100b7;
+// }
+
+// .watch-trailer-btn:hover .watch-trailer-btn__icon {
+//   fill: #ff1100b7;
+// }
+
+// .watch-trailer-btn > .watch-trailer-btn__icon {
+//   pointer-events: none;
+// }
+
+// .watch-trailer-btn__icon {
+//   width: 70px;
+//   height: 70px;
+//   fill: #f61c0d;
+//   /* transition: fill $animation-duration $bezier-transition; */
+// }
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal-trailer {
+  position: absolute;
+
+  width: 800px;
+  height: 600px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  /* transition: transform 250ms var(--timing-function); */
+}
+
+.youtube-video {
+  width: 100%;
+  height: 100%;
+}

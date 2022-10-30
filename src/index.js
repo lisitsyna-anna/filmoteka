@@ -10,6 +10,8 @@ import './js/switch-bg-theme';
 
 import { scrollFunction } from './js/button-up';
 
+import { onCliсkBtnWatch } from './js/API/get-movie-trailer';
+
 ///Запуск спінера при завантаженні
 spinnerPlay();
 window.addEventListener('load', function (e) {

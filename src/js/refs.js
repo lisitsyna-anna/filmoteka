@@ -12,4 +12,5 @@ export const refs = {
   btnUp: document.querySelector('.btn-up-wrapper__btn'),
   body: document.querySelector('body'),
   link: document.querySelector('.footer__link'),
+  modalBackdropTrailer: document.querySelector('.backdrop-trailer'),
 };
