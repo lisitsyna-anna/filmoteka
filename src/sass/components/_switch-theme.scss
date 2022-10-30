@@ -1,0 +1,241 @@
+// Switcher
+.theme-switcher {
+  .header__section & {
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    @include tablet {
+      top: -30px;
+      right: 28px;
+    }
+  }
+  position: relative;
+  cursor: pointer;
+}
+
+.theme-switcher__thumb {
+  transition: $transition-duration;
+  position: absolute;
+  top: 1px;
+  left: 25px;
+  box-shadow: 1px 1px 2px $color-accent, 0 0 1em $color-text-light,
+    0 0 0.2em $color-text-lighter;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: $color-accent;
+  box-sizing: border-box;
+  transform: translateX(0);
+  @include tablet {
+    width: 22px;
+    height: 22px;
+  }
+
+  &--after {
+    transition: $transition-duration;
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    box-shadow: 1px 1px 2px $color-accent-secondary, 0 0 1em $color-text-light,
+      0 0 0.2em $color-text-lighter;
+    background-color: $color-accent-secondary;
+  }
+}
+
+.theme-switcher__btn {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 12px;
+  border: none;
+  width: 45px;
+  height: 20px;
+  padding: 0px 5px;
+  @include centeredFlex;
+  gap: 5px;
+  cursor: pointer;
+  background-color: $bg-body;
+  @include tablet {
+    width: 50px;
+    height: 25px;
+  }
+}
+
+.theme-switcher__icon {
+  display: block;
+  margin-left: auto;
+  fill: $color-text;
+  @include tablet {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Light theme background
+body {
+  background-color: $bg-body;
+  transition: background-color $transition-duration $transition-animation;
+}
+
+// Dark theme colors
+// body
+body.dark-theme {
+  background-color: #272e36;
+  transition: background-color $transition-duration $transition-animation;
+
+  //   main header bg-img
+  & .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/main-header-bg-mobile-1x.jpg);
+    @include retina {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/main-header-bg-mobile-2x.jpg);
+    }
+    @include tablet {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/main-header-bg-tablet-1x.jpg);
+      @include retina {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(../images/main-header-bg-tablet-2x.jpg);
+      }
+    }
+    @include desktop {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/main-header-bg-desktop-1x.jpg);
+      @include retina {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(../images/main-header-bg-desktop-2x.jpg);
+      }
+    }
+  }
+
+  //   swithcer
+  & .theme-switcher__btn {
+    background-color: #272e36;
+  }
+  & .theme-switcher__icon {
+    fill: $color-text-lighter;
+  }
+
+  //   gallery
+  & .frame__title {
+    color: $color-text-lighter;
+  }
+  & .frame__genres {
+    color: $color-accent;
+  }
+  & .frame__poster {
+    box-shadow: 0px 1px 5px 0px rgba(255, 255, 255, 0.75);
+  }
+  & .frame__genres::after {
+    background-color: $color-accent;
+  }
+  & .frame__year {
+    color: $color-accent;
+  }
+
+  //   pagination
+  & .pagination-button {
+    background-color: #272e36;
+    color: $color-text-lighter;
+  }
+  & .pagination--current {
+    background-color: $color-accent;
+    color: $color-text;
+  }
+  & .dots {
+    color: $color-text-lighter;
+  }
+  .arrow-left,
+  .arrow-right {
+    background-color: $color-accent;
+  }
+
+  //   footer
+  & .footer {
+    background-color: #2d3640;
+  }
+  & .footer__copyright {
+    color: $color-text-lighter;
+  }
+  & .footer__text {
+    color: $color-text-lighter;
+  }
+  & .footer__link {
+    color: $color-text-lighter;
+  }
+
+  //   modal-movie
+  & .backdrop {
+    background: rgba(0, 0, 0, 0.56);
+  }
+  & .modal {
+    background-color: #272e36;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  & .modal-close {
+    color: $color-accent-secondary;
+    background-color: #272e36;
+  }
+  & modal-close:hover .modal-close__icon,
+  & modal-close:focus .modal-close__icon {
+    fill: currentColor;
+  }
+  & .table,
+  & .title-modal,
+  & .title-about__modal,
+  & .about-text__modal {
+    color: $color-text-lighter;
+  }
+  & .table__text {
+    color: #cccccc;
+  }
+  & .about-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, #cccccc, $color-accent-secondary);
+    border: solid 1px #5c5252;
+  }
+
+  & .button-watched__modal {
+    color: #ffffff;
+    background: $color-accent-secondary;
+  }
+
+  & .button-queue__modal {
+    border: 1px solid #000000;
+    background: #cccccc;
+  }
+
+  & .vote-average {
+    color: #ffffff;
+    background: $color-accent-secondary;
+  }
+
+  & .vote-count {
+    background: #cccccc;
+    color: $color-text;
+  }
+}
