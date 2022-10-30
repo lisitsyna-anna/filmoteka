@@ -158,6 +158,11 @@ body.dark-theme {
     color: $color-accent;
   }
 
+  //   button-up
+  & .btn-up-wrapper__text {
+    color: $color-text-lighter;
+  }
+
   //   pagination
   & .pagination-button {
     background-color: #272e36;
@@ -204,6 +209,9 @@ body.dark-theme {
   & modal-close:hover .modal-close__icon,
   & modal-close:focus .modal-close__icon {
     fill: currentColor;
+  }
+  & .img-modal {
+    box-shadow: 0px 1px 7px 0px rgba(255, 255, 255, 0.75);
   }
   & .table,
   & .title-modal,
