@@ -27,7 +27,6 @@ async function openModal(e) {
   const response = await getMovieById(idMovie);
   selectedMovie = createMovieObj(response);
   const markup = createMarkupModal(response);
-  //   refs.modal.insertAdjacentHTML('beforeend', markup);
   refs.modal.innerHTML = markup;
 
   // close
