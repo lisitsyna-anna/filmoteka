@@ -17,6 +17,7 @@
     padding-right: 32px;
   }
   @include desktop {
+    width: 100%;
     max-width: 1280px;
   }
 }
