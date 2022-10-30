@@ -15,7 +15,7 @@ export async function onFormSubmit(e) {
 
   page = 1;
 
-  searchResult = e.currentTarget.elements.searchQuery.value
+  const searchResult = e.currentTarget.elements.searchQuery.value
     .trim()
     .toLowerCase();
 
