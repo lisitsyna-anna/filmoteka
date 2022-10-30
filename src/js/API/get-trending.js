@@ -36,9 +36,9 @@ export function createMarkup({
 
   return `
       <li class="gallery-list__item" data-id="${id}" >
-          <img src="${
-            IMAGE_URL + posterPath
-          }" alt="${title}" class="gallery-list__poster" loading="lazy"/>
+          <img data-id="${id}" src="${
+    IMAGE_URL + posterPath
+  }" alt="${title}" class="gallery-list__poster" loading="lazy"  />
           <p class="gallery-list__title">${title}</p>
           <p class="gallery-list__genres">${genres}</p>
           <p class="gallery-list__year">${new Date(
