@@ -8,5 +8,8 @@ export const refs = {
   notification: document.querySelector('.header__notification'),
   btnAddWatched: document.querySelector('.js-add-watched'),
   btnAddqueue: document.querySelector('js-add-queue'),
+  wrapperBtnUP: document.querySelector('.btn-up-wrapper'),
+  btnUp: document.querySelector('.btn-up-wrapper__btn'),
   body: document.querySelector('body'),
+
 };

@@ -1,0 +1,35 @@
+.btn-up-wrapper {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: -15px;
+  z-index: 99;
+  width: 100px;
+  height: 100px;
+  @include font($font-size, 1.67, 500, null);
+  text-transform: uppercase;
+  transition: text-shadow $transition-duration $transition-animation;
+
+  &:hover {
+    font-size: 14px;
+    text-shadow: 1px 1px 1px $color-accent-secondary, 0 0 1em $color-text-light,
+      0 0 0.2em $color-text-lighter;
+  }
+  &__text {
+    text-align: center;
+  }
+
+  &__btn {
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 80px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    background-image: url(../images/button-up.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
