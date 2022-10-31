@@ -12,7 +12,12 @@ export const refs = {
   btnUp: document.querySelector('.btn-up-wrapper__btn'),
   body: document.querySelector('body'),
 
-  btnLibraryQueue: document.querySelector('.queue__btn'),
-  libraryGallery: document.querySelector('.library-gallery__list'),
   link: document.querySelector('.footer__link'),
+
+  libraryLink: document.querySelector('.js-library-link'),
+  btnLibraryQueue: document.querySelector('.queue__btn'),
+  btnLibraryWatched: document.querySelector('.watched__btn'),
+  libraryBtnsList: document.querySelector('.library__btn-list'),
+  libraryGallery: document.querySelector('.library-gallery__list'),
+  libraryContainer: document.querySelector('.library-gallery__container'),
 };
