@@ -34,17 +34,23 @@ export function createMarkup({
   // Получаем жанры для рендера
   const genres = getGenres(genresList, genreIds);
 
-  return `
-      <li class="frame" data-id="${id}" >
-          <img data-id="${id}" src="${
-    IMAGE_URL + posterPath
-  }" alt="${title}" class="frame__poster" loading="lazy"/>
-          <p class="frame__title">${title}</p>
-          <p class="frame__genres">${genres}</p>
-          <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
-      </li>
-      `;
+  return `<li class="frame" data-id="${id}">
+          <img
+            data-id="${id}"
+            src="${IMAGE_URL + posterPath}"
+            alt="${title}"
+            class="frame__poster"
+            loading="lazy"
+          />
+          <div class="frame__info">
+            <p class="frame__title">${title}</p>
+            <p class="frame__genres">${genres}</p>
+            <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
+
+          </div>
+          </li>`;
 }
+// <p class="frame__raiting">${}</p>;
 
 // Функция, которая вставялет полученные данные на страницу
 export async function renderTrendingMovies() {
@@ -53,9 +59,7 @@ export async function renderTrendingMovies() {
 
     const markup = [...moviesList].map(createMarkup).join('');
 
-    if (refs.galleryMovies) {
-      refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
-    }
+    refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
   } catch (error) {
     console.log('Something wrong with API', error.message);
   }
