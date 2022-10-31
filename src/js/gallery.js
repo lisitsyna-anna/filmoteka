@@ -17,11 +17,11 @@ export async function onFormSubmit(e) {
 
   const searchResult = e.target.elements.searchQuery.value.trim().toLowerCase();
 
-  if (searchResult !== '') {
+  if (searchResult) {
     try {
       const markupPictures = await getSearchMovies(searchResult, page);
 
-      if (markupPictures.length !== 0) {
+      if (markupPictures.length) {
         clearGallery(refs.galleryMovies);
         renderMoviesGallery(markupPictures, refs.galleryMovies);
       } else {
