@@ -86,31 +86,31 @@ function templateTrailer(youtubeKey) {
 `;
 }
 
-const showTrailerWindow = () => {
+export function showTrailerWindow() {
   backdropTrailer.classList.remove('is-hidden');
 
   document.addEventListener('keydown', closeOnEscClick);
 
-  //   refs.modalBackdrop.classList.add('is-hidden');
-};
+  refs.modalBackdrop.classList.add('is-hidden');
+}
 
 const backdropTrailer = document.querySelector('.backdrop-trailer');
 
-const closeTrailer = () => {
+export function closeTrailer() {
   trailerPlayerRef.innerHTML = '';
   backdropTrailer.classList.add('is-hidden');
   document.removeEventListener('keydown', closeOnEscClick);
-};
+}
 
-const closeOnBackdropClick = e => {
+export function closeOnBackdropClick(e) {
   if (!e.target === e.currentTarget) return;
   closeTrailer();
-};
+}
 
 backdropTrailer.addEventListener('click', closeOnBackdropClick);
 
-const closeOnEscClick = e => {
+export function closeOnEscClick(e) {
   if (e.code === 'Escape') {
     closeTrailer();
   }
-};
+}

@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { refs } from '../refs';
 import { KEY_API } from './api-params';
+import { renderTrailerBtn } from '../API/get-movie-trailer';
+import { showTrailerWindow } from '../API/get-movie-trailer';
+import { closeOnBackdropClick } from '../API/get-movie-trailer';
+import { closeOnEscClick } from '../API/get-movie-trailer';
+import { closeTrailer } from '../API/get-movie-trailer';
+
 import {
   KEY_QUEUE_MOVIES,
   KEY_WATCHED_MOVIES,
@@ -42,6 +48,9 @@ async function openModal(e) {
 
   const markup = createMarkupModal(response);
   refs.modal.innerHTML = markup;
+
+  const selector = document.querySelector('.watch-trailer-btn');
+  renderTrailerBtn(idMovie, selector);
 
   // close
   window.addEventListener('keydown', onEscKeyPress);
@@ -140,8 +149,12 @@ function createMarkupModal({
                 ${textBtnWatched}
             </button>
             <button type="button" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
+            <button type="button" class="watch-trailer-btn is-hidden " data-id=${id} >Переглянути трейлер</button>
+            </div>
         </div>
-        </div>`;
+
+          
+        `;
 }
 
 function offCloseModal() {
