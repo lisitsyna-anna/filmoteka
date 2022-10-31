@@ -22,3 +22,13 @@
     max-width: 1280px;
   }
 }
+
+main {
+  min-height: calc(100vh - 330px);
+  @include tablet {
+    min-height: calc(100vh - 316px);
+  }
+  @include minidesktop {
+    min-height: calc(100vh - 317px);
+  }
+}
