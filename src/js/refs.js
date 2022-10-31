@@ -14,4 +14,5 @@ export const refs = {
 
   btnLibraryQueue: document.querySelector('.queue__btn'),
   libraryGallery: document.querySelector('.library-gallery__list'),
+  link: document.querySelector('.footer__link'),
 };

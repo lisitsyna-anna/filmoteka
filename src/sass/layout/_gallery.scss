@@ -16,8 +16,11 @@
     column-gap: 16px;
   }
 }
+
 .frame {
   width: 100%;
+  translate: transform $transition-duration $transition-animation;
+  border-radius: 5px;
 
   @include tablet {
     width: calc((100% - 32px) / 2);
@@ -26,12 +29,32 @@
   @include desktop {
     width: calc((100% - 32px) / 3);
   }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+
+    box-shadow: 0 0 20px -5px $color-accent;
+  }
+}
+
+.mov-info {
+  padding: 8px;
 }
 
 .frame__poster {
   width: 100%;
+  height: 402px;
   object-fit: cover;
   border-radius: 5px;
+
+  @include tablet {
+    height: 455px;
+  }
+
+  @include desktop {
+    height: 574px;
+  }
 }
 .frame__title {
   @include font($font-size, 1.16, 500);
