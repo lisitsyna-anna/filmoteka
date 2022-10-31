@@ -12,9 +12,8 @@ import {
 
 export let selectedMovie;
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
-
 // API
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 async function getMovieById(id) {
   try {
     const { data } = await axios.get(
@@ -105,23 +104,28 @@ function createMarkupModal({
     textBtnQueue = 'REMOVE FROM QUEUE';
   }
 
-  const modalGenres =
-    genres
-      .map(genre => genre.name)
-      .slice(0, 2)
-      .join(', ') + ', Other';
+  const modalGenres = genres.map(genre => genre.name);
+  // if (modalGenres.length > 2) {
+  //   modalGenres.slice(0, 2).join(', ') + ', Other';
+  // }
 
-  return `<img class="img-modal" src="https://image.tmdb.org/t/p/w500${posterPath}" alt="${title}" data-id=${id} />
+  return `
+        <div class="  img-modal-wrap">
+        <img class="img-modal" src="https://image.tmdb.org/t/p/w500${posterPath}" alt="${title}" data-id=${id} />
+         <button type="button" class="watch-trailer-btn " data-id=${id} >Watch the trailer</button>
+         </div>
         <div class="container-modal">
           <b class="title-modal">${title}</b>
           <table class="table">
             <tr class="table-separator">
               <th class="table__text">Vote / Votes</th>
-              <th><span class="vote-average">${voteAverage}</span> / <span class="vote-count">${voteCount}</span></th>
+              <th><span class="vote-average">${voteAverage.toFixed(
+                1
+              )}</span> / <span class="vote-count">${voteCount}</span></th>
             </tr>
             <tr class="table-separator">
               <th class="table__text">Popularity</th>
-              <th>${popularity}</th>
+              <th>${popularity.toFixed(1)}</th>
             </tr>
             <tr class="table-separator">
               <th class="table__text">Original Title</th>
