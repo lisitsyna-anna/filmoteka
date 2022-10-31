@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { KEY_API } from './api-params';
+import { refs } from '../refs';
 
 // функція HTTP запиту
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
@@ -39,23 +40,23 @@ export async function renderTrailerBtn(movieId, selector) {
 // /-------------------------------------/
 
 const cardRef = document.querySelector('.modal__content');
-cardRef.addEventListener('click', onCliсkBtnWatch);
+if (cardRef) {
+  cardRef.addEventListener('click', onCliсkBtnWatch);
+}
 
 export async function onCliсkBtnWatch(event) {
   try {
-    if (event.target.nodeName !== 'BUTTON') {
-      return;
+    if (event.target.classList.contains('watch-trailer-btn')) {
+      const filmId = event.target.dataset.id;
+
+      const results = await fetchMovieTrailer(filmId);
+
+      const youtubeKey = results[0].key;
+
+      renderTrailer(youtubeKey);
+      showTrailerWindow();
+      closeOnEscClick(event);
     }
-
-    const filmId = event.target.dataset.id;
-
-    const results = await fetchMovieTrailer(filmId);
-
-    const youtubeKey = results[0].key;
-
-    renderTrailer(youtubeKey);
-    showTrailerWindow();
-    closeOnEscClick();
   } catch (error) {
     console.log(error);
   }
@@ -88,15 +89,15 @@ export function showTrailerWindow() {
   backdropTrailer.classList.remove('is-hidden');
 
   document.addEventListener('keydown', closeOnEscClick);
-
-  refs.modalBackdrop.classList.add('is-hidden');
 }
 
 const backdropTrailer = document.querySelector('.backdrop-trailer');
 
 export function closeTrailer() {
   trailerPlayerRef.innerHTML = '';
-  backdropTrailer.classList.add('is-hidden');
+  if (backdropTrailer) {
+    backdropTrailer.classList.add('is-hidden');
+  }
   document.removeEventListener('keydown', closeOnEscClick);
 }
 
@@ -104,8 +105,9 @@ export function closeOnBackdropClick(e) {
   if (!e.target === e.currentTarget) return;
   closeTrailer();
 }
-
-backdropTrailer.addEventListener('click', closeOnBackdropClick);
+if (backdropTrailer) {
+  backdropTrailer.addEventListener('click', closeOnBackdropClick);
+}
 
 export function closeOnEscClick(e) {
   if (e.code === 'Escape') {
