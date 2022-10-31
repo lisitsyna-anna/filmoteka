@@ -30,6 +30,11 @@ if (refs.galleryMovies) {
 }
 
 async function openModal(e) {
+  // const isFilmCardElem = e.target.classList.contains('frame');
+  // if (!isFilmCardElem) {
+  //   return;
+  // }
+
   if (e.target.nodeName !== 'LI' && e.target.nodeName !== 'IMG') {
     return;
   }
@@ -110,10 +115,7 @@ function createMarkupModal({
   // }
 
   return `
-        <div class="  img-modal-wrap">
         <img class="img-modal" src="https://image.tmdb.org/t/p/w500${posterPath}" alt="${title}" data-id=${id} />
-         <button type="button" class="watch-trailer-btn " data-id=${id} >Watch the trailer</button>
-         </div>
         <div class="container-modal">
           <b class="title-modal">${title}</b>
           <table class="table">
