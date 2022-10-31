@@ -2,6 +2,9 @@ import { IMAGE_URL } from './API/api-params';
 import { KEY_WATCHED_MOVIES, loadFromLocalStorage } from './local-storage';
 import { refs } from './refs';
 
+export const NOTHING_IMG =
+  'https://cdn.pixabay.com/photo/2021/10/25/00/00/mike-wazowski-6739521_640.png';
+
 if (refs.btnLibraryWatched) {
   refs.btnLibraryWatched.addEventListener('click', onOpenWatchedLibrary);
 }
@@ -15,12 +18,10 @@ export function onOpenWatchedLibrary(e) {
   const moviesFromLocalStorage = loadFromLocalStorage(KEY_WATCHED_MOVIES);
 
   if (!moviesFromLocalStorage || !Object.keys(moviesFromLocalStorage).length) {
-    const markup = createMarkupWhenLocalStorageEmpty();
+    const markupNothing = createMarkupWhenLocalStorageEmpty();
 
-    if (refs.libraryGallery) {
-      refs.libraryGallery.innerHTML = markup;
-      console.log('РЕНДЕР ОШИБКИ - ДОБАВТЕ ФИЛЬМЫ');
-    }
+    refs.libraryContainer.innerHTML = markupNothing;
+    console.log('РЕНДЕР ОШИБКИ - ДОБАВТЕ ФИЛЬМЫ');
   } else {
     const moviesToRender = Object.values(moviesFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
@@ -70,9 +71,7 @@ function concatGenres(arrOfGenresName) {
   }, '');
 }
 
-NOTHING_IMG = 'https://assets.stickpng.com/images/58a7a0d35ad0fd0b7fdd33b4.png';
-
-export function createMarkupWhenLocalStorageEmpty(img) {
+export function createMarkupWhenLocalStorageEmpty() {
   return `
   <div class="container-nothing">
     <img
