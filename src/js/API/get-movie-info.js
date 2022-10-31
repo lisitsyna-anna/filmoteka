@@ -2,10 +2,6 @@ import axios from 'axios';
 import { refs } from '../refs';
 import { KEY_API } from './api-params';
 import { renderTrailerBtn } from '../API/get-movie-trailer';
-import { showTrailerWindow } from '../API/get-movie-trailer';
-import { closeOnBackdropClick } from '../API/get-movie-trailer';
-import { closeOnEscClick } from '../API/get-movie-trailer';
-import { closeTrailer } from '../API/get-movie-trailer';
 
 import {
   KEY_QUEUE_MOVIES,

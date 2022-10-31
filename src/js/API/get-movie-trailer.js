@@ -30,7 +30,6 @@ async function getTrailers(movieId) {
 
 export async function renderTrailerBtn(movieId, selector) {
   const officialTrailer = await getTrailers(movieId);
-  console.log('officialTrailer', officialTrailer);
   if (!officialTrailer) {
     return;
   }
@@ -40,7 +39,6 @@ export async function renderTrailerBtn(movieId, selector) {
 // /-------------------------------------/
 
 const cardRef = document.querySelector('.modal__content');
-console.log(cardRef);
 cardRef.addEventListener('click', onCliсkBtnWatch);
 
 export async function onCliсkBtnWatch(event) {
