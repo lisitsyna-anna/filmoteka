@@ -30,11 +30,6 @@ if (refs.galleryMovies) {
 }
 
 async function openModal(e) {
-  // const isFilmCardElem = e.target.classList.contains('frame');
-  // if (!isFilmCardElem) {
-  //   return;
-  // }
-
   if (e.target.nodeName !== 'LI' && e.target.nodeName !== 'IMG') {
     return;
   }
