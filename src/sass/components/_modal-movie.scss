@@ -1,5 +1,6 @@
 .backdrop {
   position: fixed;
+  overflow: scroll;
   top: 0;
   z-index: 999;
   background: rgba(0, 0, 0, 0.56);
@@ -21,7 +22,6 @@
   padding: 35px 15px 30px 15px;
   width: calc(100% - 30px);
   max-width: 290px;
-
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -179,8 +179,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  background: #ff6b01;
+  color: $color-text-lighter;
+  background: $color-accent;
   border: none;
   max-width: 110px;
   max-height: 44px;
@@ -208,8 +208,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000000;
-  background: #ffffff;
+  border: 1px solid $color-text;
+  background: $bg-footer;
   max-width: 110px;
   max-height: 44px;
   border-radius: 5px;

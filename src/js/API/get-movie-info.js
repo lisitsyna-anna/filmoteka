@@ -12,9 +12,8 @@ import {
 
 export let selectedMovie;
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
-
 // API
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 async function getMovieById(id) {
   try {
     const { data } = await axios.get(
