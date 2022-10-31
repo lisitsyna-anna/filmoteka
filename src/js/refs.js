@@ -14,6 +14,8 @@ export const refs = {
 
   link: document.querySelector('.footer__link'),
 
+  modalBackdropTrailer: document.querySelector('.backdrop-trailer'),
+
   libraryLink: document.querySelector('.js-library-link'),
   btnLibraryQueue: document.querySelector('.queue__btn'),
   btnLibraryWatched: document.querySelector('.watched__btn'),
