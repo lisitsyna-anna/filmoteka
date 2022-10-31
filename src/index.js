@@ -10,6 +10,8 @@ import './js/switch-bg-theme';
 
 import { scrollFunction } from './js/button-up';
 
+import { onOpenQueueLibrary } from './js/queue-library';
+
 ///Запуск спінера при завантаженні
 spinnerPlay();
 window.addEventListener('load', function (e) {
