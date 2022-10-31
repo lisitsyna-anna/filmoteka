@@ -70,12 +70,14 @@ function concatGenres(arrOfGenresName) {
   }, '');
 }
 
+NOTHING_IMG = 'https://assets.stickpng.com/images/58a7a0d35ad0fd0b7fdd33b4.png';
+
 export function createMarkupWhenLocalStorageEmpty(img) {
   return `
   <div class="container-nothing">
     <img
         class="container-nothing__img"
-        src="./images/nothing.png"
+        src="${NOTHING_IMG}"
         alt="mike"
         loading="lazy"
     />
