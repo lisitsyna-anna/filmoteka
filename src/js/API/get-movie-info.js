@@ -47,7 +47,9 @@ async function openModal(e) {
 
   const markup = createMarkupModal(response);
   refs.modal.innerHTML = markup;
+  refs.body.classList.add('no-scroll');
 
+  // render trailer
   const selector = document.querySelector('.watch-trailer-btn');
   renderTrailerBtn(idMovie, selector);
 
@@ -114,8 +116,10 @@ function createMarkupModal({
   }
 
   const modalGenres = genres.map(genre => genre.name);
-  // if (modalGenres.length > 2) {
+  // function generesOther(modalGenres) {
+  //   if (modalGenres.length > 2) {
   //   modalGenres.slice(0, 2).join(', ') + ', Other';
+  // }
   // }
 
   return `
@@ -153,8 +157,6 @@ function createMarkupModal({
             </div>
              <button type="button" class="watch-trailer-btn is-hidden " data-id=${id} >Переглянути трейлер</button>
         </div>
-
-          
         `;
 }
 
@@ -162,6 +164,7 @@ function offCloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   refs.modalBackdrop.classList.remove('show-modal');
   refs.modalContainer.removeEventListener('click', onModalBtnsClick);
+  refs.body.classList.remove('no-scroll');
 }
 
 function onBackdropClick(e) {
