@@ -2,6 +2,10 @@
 // import search
 // import gallery and input
 
+import { renderTrendingMovies } from '../js/API/get-trending';
+import { galleryMovies, formSearch } from '../js/refs';
+import { movieSearcher } from '../js/API/search-movies';
+
 const refs = {
     btn1Ref: document.querySelector('[data-index="1"]'),
     btn2Ref: document.querySelector('[data-index="2"]'),
@@ -108,14 +112,14 @@ function onPaginationClick(event) {
             refs.lastPageRef.hidden = false;
         }
 
-        /*gallery.innerHTML = '';
-        window.scrollTo({ top: 0, behavior: 'smooth' });*/
+        galleryMovies.innerHTML = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        /*if (inputRef.value !== '') {
-            movieSearcher(inputRef.value, currentPage);
+        if (formSearch.value !== '') {
+            movieSearcher(formSearch.value, currentPage);
         } else {
-            startPage();
-        }*/
+            renderTrendingMovies()
+        }
     }
 }
 

@@ -4,6 +4,7 @@ import { refs } from '../refs';
 import { KEY_API } from './api-params';
 import { IMAGE_URL } from './api-params';
 import { getGenres } from './get-genres';
+import { currentPage, defineResultsPerPage } from '../pagination';
 
 const TRENDING_PATH = '/trending/movie/day';
 let page = 1;
@@ -14,8 +15,9 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 export async function getTrendingMovies() {
   try {
     const { data } = await axios.get(
-      `${TRENDING_PATH}?api_key=${KEY_API}&page=${page}`
+      `${TRENDING_PATH}?api_key=${KEY_API}&page=${currentPage}`
     );
+    const size = defineResultsPerPage();
 
     return data.results;
   } catch (error) {
