@@ -150,8 +150,8 @@ function createMarkupModal({
                 ${textBtnWatched}
             </button>
             <button type="button" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
-            <button type="button" class="watch-trailer-btn is-hidden " data-id=${id} >Переглянути трейлер</button>
             </div>
+             <button type="button" class="watch-trailer-btn is-hidden " data-id=${id} >Переглянути трейлер</button>
         </div>
 
           
