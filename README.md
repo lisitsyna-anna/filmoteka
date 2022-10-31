@@ -24,13 +24,13 @@ _Привіт!_ :wave:
 
 - [**Front-end developer**: Anna Lisitsyna](https://github.com/lisitsyna-anna)
 
-- [**Front-end developer**: Bohdan](https://github.com/Bohdan100)
+- [**Front-end developer**: Bohdan Orlovskyi](https://github.com/Bohdan100)
 
 - [**Front-end developer**: Yuliia Tymchuk](https://github.com/yuliia-tymchuk)
 
 - [**Front-end developerr**: Volodymyr Tymoshchuk](https://github.com/Vobzilla)
 
-- [**Front-end developer**: Sofiia Korost](https://github.com/SofiiaKorost)
+- [**Front-end developer**: Sofiia Korostenska](https://github.com/SofiiaKorost)
 
 - [**Front-end developer**: Mykola Zaikovskyi](https://github.com/mykola1982)
 

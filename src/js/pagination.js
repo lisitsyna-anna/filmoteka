@@ -2,7 +2,11 @@
 // import search
 // import gallery and input
 
-const refs = {
+import { renderTrendingMovies } from './API/get-trending';
+import { movieSearcher } from './API/search-movies';
+import { refs } from './refs';
+
+const refsPag = {
     btn1Ref: document.querySelector('[data-index="1"]'),
     btn2Ref: document.querySelector('[data-index="2"]'),
     btn3Ref: document.querySelector('[data-index="3"]'),
@@ -15,18 +19,17 @@ const refs = {
     leftArrowRef: document.querySelector('.arrow-left'),
     prevDotsRef: document.querySelector('#previous'),
     afterDotsRef: document.querySelector('#after'),
-}
+};
 
-
-refs.paginationRef.addEventListener('click', onPaginationClick);
+refsPag.paginationRef.addEventListener('click', onPaginationClick);
 
 let currentPage = 1;
 
 let btns = document.querySelectorAll('.pagination-button');
 
-refs.prevDotsRef.hidden = true;
-refs.leftArrowRef.hidden = true;
-refs.firstPageRef.hidden = true;
+refsPag.prevDotsRef.hidden = true;
+refsPag.leftArrowRef.hidden = true;
+refsPag.firstPageRef.hidden = true;
 
 function onPaginationClick(event) {
     if (event.target.tagName === 'BUTTON') {
@@ -34,8 +37,8 @@ function onPaginationClick(event) {
             currentPage = Number(event.target.textContent);
         }
 
-        refs.prevDotsRef.hidden = true;
-        refs.afterDotsRef.hidden = true;
+        refsPag.prevDotsRef.hidden = true;
+        refsPag.afterDotsRef.hidden = true;
 
         if (event.target.classList.contains('pagination-button')) {
             btns.forEach(el => el.classList.remove('pagination--current'));
@@ -44,78 +47,78 @@ function onPaginationClick(event) {
 
         if (event.target.classList.contains('arrow-right') && currentPage < 1000) {
             btns.forEach(el => el.classList.remove('pagination--current'));
-            refs.btn1Ref.classList.add('pagination--current');
-            refs.btn1Ref.textContent = Number(refs.btn1Ref.textContent) + 5;
-            refs.btn2Ref.textContent = Number(refs.btn2Ref.textContent) + 5;
-            refs.btn3Ref.textContent = Number(refs.btn3Ref.textContent) + 5;
-            refs.btn4Ref.textContent = Number(refs.btn4Ref.textContent) + 5;
-            refs.btn5Ref.textContent = Number(refs.btn5Ref.textContent) + 5;
-            currentPage = refs.btn1Ref.textContent;
+            refsPag.btn1Ref.classList.add('pagination--current');
+            refsPag.btn1Ref.textContent = Number(refsPag.btn1Ref.textContent) + 5;
+            refsPag.btn2Ref.textContent = Number(refsPag.btn2Ref.textContent) + 5;
+            refsPag.btn3Ref.textContent = Number(refsPag.btn3Ref.textContent) + 5;
+            refsPag.btn4Ref.textContent = Number(refsPag.btn4Ref.textContent) + 5;
+            refsPag.btn5Ref.textContent = Number(refsPag.btn5Ref.textContent) + 5;
+            currentPage = refsPag.btn1Ref.textContent;
         }
 
         if (event.target.classList.contains('arrow-left') && currentPage >= 5) {
             btns.forEach(el => el.classList.remove('pagination--current'));
-            refs.btn1Ref.textContent = Number(refs.btn1Ref.textContent) - 5;
-            refs.btn2Ref.textContent = Number(refs.btn2Ref.textContent) - 5;
-            refs.btn3Ref.textContent = Number(refs.btn3Ref.textContent) - 5;
-            refs.btn4Ref.textContent = Number(refs.btn4Ref.textContent) - 5;
-            refs.btn5Ref.textContent = Number(refs.btn5Ref.textContent) - 5;
-            refs.btn5Ref.classList.add('pagination--current');
-            currentPage = refs.btn5Ref.textContent;
+            refsPag.btn1Ref.textContent = Number(refsPag.btn1Ref.textContent) - 5;
+            refsPag.btn2Ref.textContent = Number(refsPag.btn2Ref.textContent) - 5;
+            refsPag.btn3Ref.textContent = Number(refsPag.btn3Ref.textContent) - 5;
+            refsPag.btn4Ref.textContent = Number(refsPag.btn4Ref.textContent) - 5;
+            refsPag.btn5Ref.textContent = Number(refsPag.btn5Ref.textContent) - 5;
+            refsPag.btn5Ref.classList.add('pagination--current');
+            currentPage = refsPag.btn5Ref.textContent;
         }
 
         if (event.target.classList.contains('first-button')) {
             btns.forEach(el => el.classList.remove('pagination--current'));
-            refs.btn1Ref.textContent = 1;
-            refs.btn2Ref.textContent = 2;
-            refs.btn3Ref.textContent = 3;
-            refs.btn4Ref.textContent = 4;
-            refs.btn5Ref.textContent = 5;
-            refs.btn1Ref.classList.add('pagination--current');
-            currentPage = refs.btn1Ref.textContent;
-            refs.leftArrowRef.hidden = true;
-            refs.prevDotsRef.hidden = true;
-            refs.firstPageRef.hidden = true;
+            refsPag.btn1Ref.textContent = 1;
+            refsPag.btn2Ref.textContent = 2;
+            refsPag.btn3Ref.textContent = 3;
+            refsPag.btn4Ref.textContent = 4;
+            refsPag.btn5Ref.textContent = 5;
+            refsPag.btn1Ref.classList.add('pagination--current');
+            currentPage = refsPag.btn1Ref.textContent;
+            refsPag.leftArrowRef.hidden = true;
+            refsPag.prevDotsRef.hidden = true;
+            refsPag.firstPageRef.hidden = true;
         }
 
         if (event.target.classList.contains('last-button')) {
             btns.forEach(el => el.classList.remove('pagination--current'));
-            refs.btn1Ref.textContent = Number(refs.lastPageRef.textContent) - 4;
-            refs.btn2Ref.textContent = Number(refs.lastPageRef.textContent) - 3;
-            refs.btn3Ref.textContent = Number(refs.lastPageRef.textContent) - 2;
-            refs.btn4Ref.textContent = Number(refs.lastPageRef.textContent) - 1;
-            refs.btn5Ref.textContent = refs.lastPageRef.textContent;
-            refs.btn5Ref.classList.add('pagination--current');
-            currentPage = refs.btn5Ref.textContent;
-            refs.rightArrowRef.hidden = true;
-            refs.afterDotsRef.hidden = true;
-            refs.lastPageRef.hidden = true;
+            refsPag.btn1Ref.textContent = Number(refsPag.lastPageRef.textContent) - 4;
+            refsPag.btn2Ref.textContent = Number(refsPag.lastPageRef.textContent) - 3;
+            refsPag.btn3Ref.textContent = Number(refsPag.lastPageRef.textContent) - 2;
+            refsPag.btn4Ref.textContent = Number(refsPag.lastPageRef.textContent) - 1;
+            refsPag.btn5Ref.textContent = refsPag.lastPageRef.textContent;
+            refsPag.btn5Ref.classList.add('pagination--current');
+            currentPage = refsPag.btn5Ref.textContent;
+            refsPag.rightArrowRef.hidden = true;
+            refsPag.afterDotsRef.hidden = true;
+            refsPag.lastPageRef.hidden = true;
         }
 
         if (Number(currentPage) > 5) {
-            refs.leftArrowRef.hidden = false;
-            refs.prevDotsRef.hidden = false;
-            refs.firstPageRef.hidden = false;
+            refsPag.leftArrowRef.hidden = false;
+            refsPag.prevDotsRef.hidden = false;
+            refsPag.firstPageRef.hidden = false;
         } else {
-            refs.leftArrowRef.hidden = true;
-            refs.prevDotsRef.hidden = true;
-            refs.firstPageRef.hidden = true;
+            refsPag.leftArrowRef.hidden = true;
+            refsPag.prevDotsRef.hidden = true;
+            refsPag.firstPageRef.hidden = true;
         }
 
         if (Number(currentPage) < 996) {
-            refs.rightArrowRef.hidden = false;
-            refs.afterDotsRef.hidden = false;
-            refs.lastPageRef.hidden = false;
+            refsPag.rightArrowRef.hidden = false;
+            refsPag.afterDotsRef.hidden = false;
+            refsPag.lastPageRef.hidden = false;
         }
 
-        /*gallery.innerHTML = '';
-        window.scrollTo({ top: 0, behavior: 'smooth' });*/
+        refs.galleryMovies.innerHTML = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        /*if (inputRef.value !== '') {
-            movieSearcher(inputRef.value, currentPage);
+        if (refs.formSearch.value !== '') {
+            movieSearcher(refs.formSearch.value, currentPage);
         } else {
-            startPage();
-        }*/
+            renderTrendingMovies();
+        }
     }
 }
 
@@ -131,6 +134,5 @@ function defineResultsPerPage() {
     }
     return pageSize;
 }
-
 
 export { currentPage, defineResultsPerPage };
