@@ -10,6 +10,8 @@ import './js/switch-bg-theme';
 
 import { scrollFunction } from './js/button-up';
 
+import { onCliсkBtnWatch } from './js/API/get-movie-trailer';
+
 import { onOpenQueueLibrary } from './js/queue-library';
 
 import { onOpenWatchedLibrary } from './js/watched-library';
