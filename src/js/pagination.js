@@ -2,8 +2,8 @@
 // import search
 // import gallery and input
 
-import { renderTrendingMovies } from './API/get-trending';
-import { movieSearcher } from './API/search-movies';
+//import { renderTrendingMovies } from './API/get-trending';
+//import { movieSearcher } from './API/search-movies';
 import { refs } from './refs';
 
 const refsPag = {
@@ -114,11 +114,11 @@ function onPaginationClick(event) {
         refs.galleryMovies.innerHTML = '';
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        if (refs.formSearch.value !== '') {
+        /*if (refs.formSearch.value !== '') {
             movieSearcher(refs.formSearch.value, currentPage);
         } else {
             renderTrendingMovies();
-        }
+        }*/
     }
 }
 
