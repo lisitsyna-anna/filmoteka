@@ -50,6 +50,10 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  @include tablet {
+    margin: 0 auto;
+  }
 }
 
 .container-nothing__img {
@@ -70,6 +74,7 @@
 
   @include tablet {
     margin-top: 0;
+    margin-left: 20px;
   }
 }
 

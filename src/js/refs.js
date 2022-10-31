@@ -19,5 +19,4 @@ export const refs = {
   btnLibraryWatched: document.querySelector('.watched__btn'),
   libraryBtnsList: document.querySelector('.library__btn-list'),
   libraryGallery: document.querySelector('.library-gallery__list'),
-  libraryContainer: document.querySelector('.library-gallery__container'),
 };
