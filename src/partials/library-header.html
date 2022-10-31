@@ -13,18 +13,33 @@
             <a href="./index.html" class="nav__link">Home</a>
           </li>
           <li class="nav__item">
-            <a href="./library.html" class="nav__link current">My library</a>
+            <a href="./library.html" class="nav__link current js-library-link"
+              >My library</a
+            >
           </li>
         </ul>
       </nav>
     </div>
     <ul class="library__btn-list">
       <li class="library__btn-item">
-        <button type="button" class="library__btn">Watched</button>
+        <button type="button" class="library__btn watched__btn">Watched</button>
       </li>
       <li class="library__btn-item">
-        <button type="button" class="library__btn">Queue</button>
+        <button type="button" class="library__btn queue__btn">Queue</button>
       </li>
     </ul>
+
+    <!-- Theme-switcher -->
+    <div class="theme-switcher">
+      <div class="theme-switcher__thumb"></div>
+      <button class="theme-switcher__btn">
+        <svg class="theme-switcher__icon" width="16" height="16">
+          <use href="/src/images/icons.svg#icon-moon"></use>
+        </svg>
+        <svg class="theme-switcher__icon" width="16" height="16">
+          <use href="/src/images/icons.svg#icon-sun"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>

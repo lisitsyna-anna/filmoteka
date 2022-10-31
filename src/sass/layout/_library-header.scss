@@ -57,6 +57,10 @@
   }
 }
 
+.library-header .container {
+  position: relative;
+}
+
 .nav__list {
   display: flex;
   align-items: center;
@@ -135,4 +139,9 @@
     background-color: $color-accent;
     border: none;
   }
+}
+
+.library__btn--active {
+  background-color: $color-accent;
+  border: none;
 }

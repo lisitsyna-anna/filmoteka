@@ -4,6 +4,7 @@ import { refs } from '../refs';
 import { KEY_API } from './api-params';
 import { IMAGE_URL } from './api-params';
 import { getGenres } from './get-genres';
+import { currentPage, defineResultsPerPage } from '../pagination';
 
 const TRENDING_PATH = '/trending/movie/day';
 let page = 1;
@@ -14,8 +15,9 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 export async function getTrendingMovies() {
   try {
     const { data } = await axios.get(
-      `${TRENDING_PATH}?api_key=${KEY_API}&page=${page}`
+      `${TRENDING_PATH}?api_key=${KEY_API}&page=${currentPage}`
     );
+    const size = defineResultsPerPage();
 
     return data.results;
   } catch (error) {
@@ -30,20 +32,26 @@ export function createMarkup({
   poster_path: posterPath,
   genre_ids: genreIds,
   release_date: releaseDate,
+  vote_average: voteAverage,
 }) {
   // Получаем жанры для рендера
   const genres = getGenres(genresList, genreIds);
 
-  return `
-      <li class="frame" data-id="${id}" >
-          <img data-id="${id}" src="${
-    IMAGE_URL + posterPath
-  }" alt="${title}" class="frame__poster" loading="lazy"/>
-          <p class="frame__title">${title}</p>
-          <p class="frame__genres">${genres}</p>
-          <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
-      </li>
-      `;
+  return `<li class="frame" data-id="${id}">
+          <img
+            data-id="${id}"
+            src="${IMAGE_URL + posterPath}"
+            alt="${title}"
+            class="frame__poster"
+            loading="lazy"
+          />
+          <div class="frame__info">
+            <p class="frame__title">${title}</p>
+            <p class="frame__genres">${genres}</p>
+            <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
+            <p class="frame__raiting">${voteAverage.toFixed(1)}</p>
+          </div>
+          </li>`;
 }
 
 // Функция, которая вставялет полученные данные на страницу
