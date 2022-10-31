@@ -39,9 +39,12 @@ export function createMarkup({
           <img data-id="${id}" src="${
     IMAGE_URL + posterPath
   }" alt="${title}" class="frame__poster" loading="lazy"/>
+        <div class="mov-info">
           <p class="frame__title">${title}</p>
           <p class="frame__genres">${genres}</p>
           <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
+          </div>
+         
       </li>
       `;
 }
@@ -53,9 +56,7 @@ export async function renderTrendingMovies() {
 
     const markup = [...moviesList].map(createMarkup).join('');
 
-    if (refs.galleryMovies) {
-      refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
-    }
+    refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
   } catch (error) {
     console.log('Something wrong with API', error.message);
   }
