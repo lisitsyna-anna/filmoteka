@@ -9,6 +9,15 @@
       right: 28px;
     }
   }
+  .library-header .container & {
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    @include tablet {
+      top: -30px;
+      right: 28px;
+    }
+  }
   position: relative;
   cursor: pointer;
 }

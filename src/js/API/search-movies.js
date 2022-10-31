@@ -38,12 +38,17 @@ function renderMoviesGallery(movies, currentGallery) {
             class="frame__poster"
             loading="lazy"
           />
-          <p class="frame__title">${title}</p>
-          <p class="frame__genres">${genres}</p>
-          <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
-        </li>`;
+          <div class="frame__info">
+            <p class="frame__title">${title}</p>
+            <p class="frame__genres">${genres}</p>
+            <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
+
+          </div>
+          </li>`;
     })
     .join('');
+
+  // <p class="frame__raiting">${}</p>;
 
   return currentGallery.insertAdjacentHTML('beforeend', markup);
 }

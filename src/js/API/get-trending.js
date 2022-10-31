@@ -34,20 +34,23 @@ export function createMarkup({
   // Получаем жанры для рендера
   const genres = getGenres(genresList, genreIds);
 
-  return `
-      <li class="frame" data-id="${id}" >
-          <img data-id="${id}" src="${
-    IMAGE_URL + posterPath
-  }" alt="${title}" class="frame__poster" loading="lazy"/>
-        <div class="mov-info">
-          <p class="frame__title">${title}</p>
-          <p class="frame__genres">${genres}</p>
-          <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
+  return `<li class="frame" data-id="${id}">
+          <img
+            data-id="${id}"
+            src="${IMAGE_URL + posterPath}"
+            alt="${title}"
+            class="frame__poster"
+            loading="lazy"
+          />
+          <div class="frame__info">
+            <p class="frame__title">${title}</p>
+            <p class="frame__genres">${genres}</p>
+            <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
+
           </div>
-         
-      </li>
-      `;
+          </li>`;
 }
+// <p class="frame__raiting">${}</p>;
 
 // Функция, которая вставялет полученные данные на страницу
 export async function renderTrendingMovies() {
