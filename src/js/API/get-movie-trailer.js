@@ -40,7 +40,6 @@ export async function renderTrailerBtn(movieId, selector) {
 // /-------------------------------------/
 
 const cardRef = document.querySelector('.modal__content');
-console.log(cardRef);
 cardRef.addEventListener('click', onCliсkBtnWatch);
 
 export async function onCliсkBtnWatch(event) {
