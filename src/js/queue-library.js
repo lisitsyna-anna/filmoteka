@@ -2,6 +2,7 @@ import { refs } from './refs';
 import { IMAGE_URL } from './API/api-params';
 import { loadFromLocalStorage } from './local-storage';
 import { createMarkupWhenLocalStorageEmpty } from './watched-library';
+import { NOTHING_IMG } from './watched-library';
 
 const KEY_QUEUE_MOVIES = 'queueMovies';
 const queueGallery = refs.libraryGallery;
@@ -11,18 +12,17 @@ if (refs.btnLibraryQueue) {
 }
 
 export function onOpenQueueLibrary(e) {
-  e.preventDefault();
   queueGallery.innerHTML = '';
 
-  refs.btnLibraryQueue.classList.add('library__btn--activ');
-  refs.btnLibraryWatched.classList.remove('library__btn--activ');
+  refs.btnLibraryQueue.classList.add('library__btn--active');
+  refs.btnLibraryWatched.classList.remove('library__btn--active');
 
   let localQueueMovies = loadFromLocalStorage(KEY_QUEUE_MOVIES);
   let markup = '';
 
   if (!localQueueMovies || !Object.keys(localQueueMovies).length) {
     const markupNothing = createMarkupWhenLocalStorageEmpty();
-    queueGallery.innerHTML = markupNothing;
+    refs.libraryContainer.innerHTML = markupNothing;
     console.log('РЕНДЕР ОШИБКИ - ПУСТОЙ ЛОКАЛ СТОРАДЖ');
   }
   if (localQueueMovies) {
@@ -31,7 +31,6 @@ export function onOpenQueueLibrary(e) {
     for (const movie of queueMovies) {
       const { id, posterPath, title, releaseDate, genres, voteAverage } = movie;
 
-      console.log(genres);
       const renderGenres = getGenres(genres);
 
       markup += `<li class="frame" data-id="${id}">
