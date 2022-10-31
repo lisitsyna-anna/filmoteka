@@ -30,7 +30,6 @@ async function getTrailers(movieId) {
 
 export async function renderTrailerBtn(movieId, selector) {
   const officialTrailer = await getTrailers(movieId);
-  console.log('officialTrailer', officialTrailer);
   if (!officialTrailer) {
     return;
   }
