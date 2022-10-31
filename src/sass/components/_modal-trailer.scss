@@ -29,14 +29,12 @@
   transition: transform $transition-duration $transition-animation;
 
   @include tablet {
-    width: 740px;
-    // max-width: 854px;
-    // max-height: 410px;
+    max-width: 854px;
+    max-height: 410px;
   }
   @include desktop {
-    width: 1000px;
-    // max-width: 854px;
-    // max-height: 410px;
+    max-width: 854px;
+    max-height: 410px;
   }
 }
 
