@@ -9,7 +9,7 @@ if (refs.btnLibraryWatched) {
   refs.btnLibraryWatched.addEventListener('click', onOpenWatchedLibrary);
 }
 
-export function onOpenWatchedLibrary(e) {
+export function onOpenWatchedLibrary() {
   if (refs.btnLibraryWatched) {
     refs.btnLibraryWatched.classList.add('library__btn--active');
     refs.btnLibraryQueue.classList.remove('library__btn--active');
@@ -20,8 +20,8 @@ export function onOpenWatchedLibrary(e) {
   if (!moviesFromLocalStorage || !Object.keys(moviesFromLocalStorage).length) {
     const markupNothing = createMarkupWhenLocalStorageEmpty();
 
-    refs.libraryContainer.innerHTML = markupNothing;
-    console.log('РЕНДЕР ОШИБКИ - ДОБАВТЕ ФИЛЬМЫ');
+    refs.libraryGallery.innerHTML = markupNothing;
+    console.log('РЕНДЕР ОШИБКИ - ДОБАВТЕ ФИЛЬМЫ в WATCHED');
   } else {
     const moviesToRender = Object.values(moviesFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
@@ -32,7 +32,7 @@ export function onOpenWatchedLibrary(e) {
   }
 }
 
-function createMarkupWatchedMovies({
+export function createMarkupWatchedMovies({
   id,
   title,
   posterPath,
@@ -59,7 +59,7 @@ function createMarkupWatchedMovies({
           </li>`;
 }
 
-function concatGenres(arrOfGenresName) {
+export function concatGenres(arrOfGenresName) {
   return arrOfGenresName.reduce((acc, genre, index, arr) => {
     if (arr.length > 2) {
       acc = `${arr[0]}, ${arr[1]}, Others`;
@@ -73,7 +73,7 @@ function concatGenres(arrOfGenresName) {
 
 export function createMarkupWhenLocalStorageEmpty() {
   return `
-  <div class="container-nothing">
+  <li class="container-nothing">
     <img
         class="container-nothing__img"
         src="${NOTHING_IMG}"
@@ -87,6 +87,24 @@ export function createMarkupWhenLocalStorageEmpty() {
         add your favorite movies.
         </p>
     </div>
-</div>
+</li>
     `;
+}
+
+export function onLoadPage() {
+  const moviesFromLocalStorage = loadFromLocalStorage(KEY_WATCHED_MOVIES);
+
+  if (!moviesFromLocalStorage || !Object.keys(moviesFromLocalStorage).length) {
+    const markupNothing = createMarkupWhenLocalStorageEmpty();
+
+    if (refs.libraryGallery) {
+      refs.libraryGallery.innerHTML = markupNothing;
+    }
+  } else {
+    const moviesToRender = Object.values(moviesFromLocalStorage);
+    const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
+    if (refs.libraryGallery) {
+      refs.libraryGallery.innerHTML = markup;
+    }
+  }
 }
