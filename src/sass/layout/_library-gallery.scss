@@ -1,9 +1,20 @@
-// .library-gallery {
+.library-gallery {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.library-gallery__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 
-// }
-// .library-gallery__list{
+  @include tablet {
+    gap: 32px;
+  }
 
-// }
+  @include desktop {
+    column-gap: 16px;
+  }
+}
 
 // Нижче навела два варіанти назв для стилів картки в бібліотеці
 
@@ -28,3 +39,57 @@
 // }
 // .library-frame__year {
 // }
+
+.container-nothing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-nothing__img {
+  width: 150px;
+
+  @include tablet {
+    min-width: 260px;
+  }
+
+  @include desktop {
+    min-width: 300px;
+  }
+}
+
+.container-nothing__content {
+  margin-top: 10px;
+  text-align: center;
+
+  @include tablet {
+    margin-top: 0;
+  }
+}
+
+.container-nothing__title {
+  margin-bottom: 10px;
+  @include font(16px, 1.5, 600, null);
+
+  @include tablet {
+    @include font(24px, 1.5, null, null);
+  }
+}
+
+.container-nothing__text {
+  @include font(14px, 1.5, 400, null);
+
+  @include tablet {
+    @include font(16px, 1.5, null, null);
+  }
+}
+
+.container-nothing__link {
+  color: $color-accent;
+
+  &:hover,
+  &:focus {
+    color: $color-accent-secondary;
+  }
+}

@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import { IMAGE_URL } from './API/api-params';
 import { loadFromLocalStorage } from './local-storage';
+import { createMarkupWhenLocalStorageEmpty } from './watched-library';
 
 const KEY_QUEUE_MOVIES = 'queueMovies';
 const queueGallery = refs.libraryGallery;
@@ -13,30 +14,40 @@ export function onOpenQueueLibrary(e) {
   e.preventDefault();
   queueGallery.innerHTML = '';
 
+  refs.btnLibraryQueue.classList.add('library__btn--activ');
+  refs.btnLibraryWatched.classList.remove('library__btn--activ');
+
   let localQueueMovies = loadFromLocalStorage(KEY_QUEUE_MOVIES);
   let markup = '';
 
+  if (!localQueueMovies || !Object.keys(localQueueMovies).length) {
+    const markupNothing = createMarkupWhenLocalStorageEmpty();
+    queueGallery.innerHTML = markupNothing;
+    console.log('РЕНДЕР ОШИБКИ - ПУСТОЙ ЛОКАЛ СТОРАДЖ');
+  }
   if (localQueueMovies) {
     const queueMovies = Object.values(localQueueMovies);
 
     for (const movie of queueMovies) {
-      const { id, posterPath, title, releaseDate, genres } = movie;
+      const { id, posterPath, title, releaseDate, genres, voteAverage } = movie;
 
       console.log(genres);
       const renderGenres = getGenres(genres);
-      console.log('renderGenres', renderGenres);
 
       markup += `<li class="frame" data-id="${id}">
-        <img
-          data-id="${id}"
-          src="${IMAGE_URL + posterPath}"
-          alt="${title}"
-          class="frame__poster"
-          loading="lazy"
-        />
+      <img
+        data-id="${id}"
+        src="${IMAGE_URL + posterPath}"
+        alt="${title}"
+        class="frame__poster"
+        loading="lazy"
+      />
+      <div class="frame__info">
         <p class="frame__title">${title}</p>
         <p class="frame__genres">${renderGenres}</p>
         <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
+        <p class="frame__raiting">${voteAverage.toFixed(1)}</p>
+      </div>
       </li>`;
     }
   }

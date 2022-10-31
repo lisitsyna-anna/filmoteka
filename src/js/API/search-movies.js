@@ -26,6 +26,7 @@ function renderMoviesGallery(movies, currentGallery) {
         original_title: title,
         release_date: releaseDate,
         genre_ids: genreIds,
+        vote_average: voteAverage,
       } = movie;
 
       const genres = getGenres(genresList, genreIds);
@@ -42,13 +43,11 @@ function renderMoviesGallery(movies, currentGallery) {
             <p class="frame__title">${title}</p>
             <p class="frame__genres">${genres}</p>
             <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
-
+            <p class="frame__raiting">${voteAverage}</p>
           </div>
           </li>`;
     })
     .join('');
-
-  // <p class="frame__raiting">${}</p>;
 
   return currentGallery.insertAdjacentHTML('beforeend', markup);
 }
