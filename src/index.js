@@ -1,4 +1,4 @@
-import { spinnerPlay, spinnerStop } from './js/loader';
+import { spinnerPlay, spinnerStop } from './js/spinner';
 import { renderTrendingMovies } from './js/API/get-trending';
 
 import { renderModalMovie } from './js/API/get-movie-info';
