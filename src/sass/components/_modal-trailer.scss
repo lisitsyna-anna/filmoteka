@@ -85,3 +85,33 @@
   pointer-events: none;
   visibility: hidden;
 }
+
+.frame__wrap {
+  position: relative;
+}
+
+.watch-trailer-btn-gallery {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 130px;
+  height: 44px;
+  @include font($font-size, $line-height, 500);
+
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: $color-accent-secondary;
+  opacity: 0.7;
+
+  border: none;
+  border-radius: 5px;
+  transition: background-color $transition-duration $transition-animation;
+
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+    border: none;
+  }
+}
