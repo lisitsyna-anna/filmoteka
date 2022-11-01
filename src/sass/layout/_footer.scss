@@ -45,6 +45,7 @@
     align-items: center;
     color: $color-text-light;
     margin-left: 5px;
+    text-decoration: underline;
     @include tablet {
       @include font(16px, 1.19, 400, null);
     }
