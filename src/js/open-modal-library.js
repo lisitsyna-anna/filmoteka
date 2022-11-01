@@ -61,11 +61,14 @@ export function onLibraryGallery(e) {
 
 function onModalLibraryBtnsClick(e) {
   if (e.target.classList.contains('js-add-watched')) {
+    console.log('watchedMoviesFromLocalStorage', watchedMoviesFromLocalStorage);
+
     checkLocalStorageWatchedMovies(
       e.target,
       watchedMoviesFromLocalStorage[idMovie]
     );
   } else if (e.target.classList.contains('js-add-queue')) {
+    console.log('queueMoviesFromLocalStorage', queueMoviesFromLocalStorage);
     checkLocalStorageQueueMovies(
       e.target,
       queueMoviesFromLocalStorage[idMovie]
@@ -77,7 +80,6 @@ export function createMarkupModal({
   voteAverage,
   voteCount,
   genres,
-  originalTitle,
   title,
   posterPath,
   originalName,
@@ -119,7 +121,7 @@ export function createMarkupModal({
               </tr>
               <tr class="table-separator">
                 <th class="table__text">Original Title</th>
-                <th>${originalTitle ? originalTitle : originalName}</th>
+                <th>${title ? title : originalName}</th>
               </tr>
               <tr class="table-separator">
                 <th class="table__text">Genre</th>

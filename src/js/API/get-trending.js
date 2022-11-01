@@ -4,8 +4,7 @@ import { refs } from '../refs';
 import { KEY_API } from './api-params';
 import { IMAGE_URL } from './api-params';
 import { getGenres } from './get-genres';
-import pagination from '../pagination'
-
+import pagination from '../pagination';
 
 const TRENDING_PATH = '/trending/movie/day';
 let page = 1;
@@ -18,7 +17,7 @@ export async function getTrendingMovies(page = 1) {
     const { data } = await axios.get(
       `${TRENDING_PATH}?api_key=${KEY_API}&page=${page}`
     );
-    pagination(data.page, data.total_pages)
+    pagination(data.page, data.total_pages);
     return data.results;
   } catch (error) {
     console.log('Something wrong with API', error.message);
@@ -40,16 +39,26 @@ export function createMarkup({
   return `<li class="frame" data-id="${id}">
           <img
             data-id="${id}"
-            src="${IMAGE_URL + posterPath}"
-            alt="${title}"
+            src="${
+              posterPath
+                ? IMAGE_URL + posterPath
+                : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
+            }"
+            alt="${title ? title : 'Title coming soon'}"
             class="frame__poster"
             loading="lazy"
           />
           <div class="frame__info">
-            <p class="frame__title">${title}</p>
-            <p class="frame__genres">${genres}</p>
-            <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
-            <p class="frame__raiting">${voteAverage.toFixed(1)}</p>
+            <p class="frame__title">${title ? title : 'Title coming soon'}</p>
+            <p class="frame__genres">${genres ? genres : '---'}</p>
+            <p class="frame__year">${
+              new Date(releaseDate).getFullYear()
+                ? new Date(releaseDate).getFullYear()
+                : '---'
+            }</p>
+            <p class="frame__raiting">${
+              voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
+            }</p>
           </div>
           </li>`;
 }
