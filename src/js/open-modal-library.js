@@ -18,6 +18,8 @@ let watchedMoviesFromLocalStorage;
 
 let queueMoviesFromLocalStorage;
 
+let currentMovie;
+
 if (refs.libraryGallery) {
   refs.libraryGallery.addEventListener('click', onLibraryGallery);
 }
@@ -25,9 +27,14 @@ if (refs.libraryGallery) {
 let idMovie;
 
 export function onLibraryGallery(e) {
-  if (e.target.nodeName !== 'LI' && e.target.nodeName !== 'IMG') {
+  if (
+    (e.target.nodeName !== 'LI' && e.target.nodeName !== 'IMG') ||
+    e.target.classList.contains('container-nothing') ||
+    e.target.classList.contains('container-nothing__img')
+  ) {
     return;
   }
+
   idMovie = Number(e.target.dataset.id);
 
   let markup = '';
@@ -36,8 +43,10 @@ export function onLibraryGallery(e) {
   queueMoviesFromLocalStorage = loadFromLocalStorage(KEY_QUEUE_MOVIES);
 
   if (watchedMoviesFromLocalStorage[idMovie]) {
+    currentMovie = watchedMoviesFromLocalStorage[idMovie];
     markup = createMarkupModal(watchedMoviesFromLocalStorage[idMovie]);
   } else if (queueMoviesFromLocalStorage[idMovie]) {
+    currentMovie = queueMoviesFromLocalStorage[idMovie];
     markup = createMarkupModal(queueMoviesFromLocalStorage[idMovie]);
   }
   refs.modal.innerHTML = markup;
@@ -61,18 +70,9 @@ export function onLibraryGallery(e) {
 
 function onModalLibraryBtnsClick(e) {
   if (e.target.classList.contains('js-add-watched')) {
-    console.log('watchedMoviesFromLocalStorage', watchedMoviesFromLocalStorage);
-
-    checkLocalStorageWatchedMovies(
-      e.target,
-      watchedMoviesFromLocalStorage[idMovie]
-    );
+    checkLocalStorageWatchedMovies(e.target, currentMovie);
   } else if (e.target.classList.contains('js-add-queue')) {
-    console.log('queueMoviesFromLocalStorage', queueMoviesFromLocalStorage);
-    checkLocalStorageQueueMovies(
-      e.target,
-      queueMoviesFromLocalStorage[idMovie]
-    );
+    checkLocalStorageQueueMovies(e.target, currentMovie);
   }
 }
 
