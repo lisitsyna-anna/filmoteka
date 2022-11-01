@@ -16,7 +16,8 @@ import { onOpenQueueLibrary } from './js/queue-library';
 
 import { onOpenWatchedLibrary } from './js/watched-library';
 
-import { onLoadPage } from './js/watched-library';
+import { loadWatchedMoviesFromLocalStorage } from './js/watched-library';
+import { onLibraryGallery } from './js/open-modal-library';
 
 ///Запуск спінера при завантаженні
 spinnerPlay();
@@ -29,4 +30,4 @@ window.addEventListener('load', function (e) {
 window.addEventListener('scroll', scrollFunction);
 
 // При завантаженні сторінки My library рендериться картки з локал сторадж watchedMovies
-window.addEventListener('load', onLoadPage);
+window.addEventListener('load', loadWatchedMoviesFromLocalStorage);

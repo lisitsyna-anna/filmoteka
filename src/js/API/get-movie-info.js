@@ -2,6 +2,10 @@ import axios from 'axios';
 import { refs } from '../refs';
 import { KEY_API } from './api-params';
 import { renderTrailerBtn } from '../API/get-movie-trailer';
+import {
+  loadWatchedMoviesFromLocalStorage,
+  loadQueueMoviesFromLocalStorage,
+} from '../watched-library';
 
 import {
   KEY_QUEUE_MOVIES,
@@ -61,7 +65,7 @@ async function openModal(e) {
   }
 }
 
-function onModalBtnsClick(e) {
+export function onModalBtnsClick(e) {
   if (e.target.classList.contains('js-add-watched')) {
     checkLocalStorageWatchedMovies(e.target, selectedMovie);
   } else if (e.target.classList.contains('js-add-queue')) {
@@ -79,7 +83,7 @@ function createMovieObj(response) {
     voteAverage: response.vote_average,
     voteCount: response.vote_count,
     popularity: response.popularity,
-    overview: response.popularity,
+    overview: response.overview,
     originalName: response.original_name,
   };
 }
@@ -151,25 +155,27 @@ function createMarkupModal({
             </button>
             <button type="button" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
             </div>
-             <button type="button" class="watch-trailer-btn is-hidden " data-id=${id} >Переглянути трейлер</button>
+             <button type="button" class="watch-trailer-btn is-hidden " data-id=${id} >Watch the trailer</button>
         </div>
         `;
 }
 
-function offCloseModal() {
+export function offCloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   refs.modalBackdrop.classList.remove('show-modal');
   refs.modalContainer.removeEventListener('click', onModalBtnsClick);
   refs.body.classList.remove('no-scroll');
+  loadQueueMoviesFromLocalStorage();
+  loadWatchedMoviesFromLocalStorage();
 }
 
-function onBackdropClick(e) {
+export function onBackdropClick(e) {
   if (e.currentTarget === e.target) {
     offCloseModal();
   }
 }
 
-function onEscKeyPress(e) {
+export function onEscKeyPress(e) {
   const ESC_KEY_CODE = 'Escape';
   if (e.code === ESC_KEY_CODE) {
     offCloseModal();

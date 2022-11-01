@@ -1,5 +1,9 @@
 import { IMAGE_URL } from './API/api-params';
-import { KEY_WATCHED_MOVIES, loadFromLocalStorage } from './local-storage';
+import {
+  KEY_QUEUE_MOVIES,
+  KEY_WATCHED_MOVIES,
+  loadFromLocalStorage,
+} from './local-storage';
 import { refs } from './refs';
 
 export const NOTHING_IMG =
@@ -21,7 +25,6 @@ export function onOpenWatchedLibrary() {
     const markupNothing = createMarkupWhenLocalStorageEmpty();
 
     refs.libraryGallery.innerHTML = markupNothing;
-    console.log('РЕНДЕР ОШИБКИ - ДОБАВТЕ ФИЛЬМЫ в WATCHED');
   } else {
     const moviesToRender = Object.values(moviesFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
@@ -91,7 +94,7 @@ export function createMarkupWhenLocalStorageEmpty() {
     `;
 }
 
-export function onLoadPage() {
+export function loadWatchedMoviesFromLocalStorage() {
   const moviesFromLocalStorage = loadFromLocalStorage(KEY_WATCHED_MOVIES);
 
   if (!moviesFromLocalStorage || !Object.keys(moviesFromLocalStorage).length) {
@@ -102,6 +105,24 @@ export function onLoadPage() {
     }
   } else {
     const moviesToRender = Object.values(moviesFromLocalStorage);
+    const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
+    if (refs.libraryGallery) {
+      refs.libraryGallery.innerHTML = markup;
+    }
+  }
+}
+
+export function loadQueueMoviesFromLocalStorage() {
+  const queueFromLocalStorage = loadFromLocalStorage(KEY_QUEUE_MOVIES);
+
+  if (!queueFromLocalStorage || !Object.keys(queueFromLocalStorage).length) {
+    const markupNothing = createMarkupWhenLocalStorageEmpty();
+
+    if (refs.libraryGallery) {
+      refs.libraryGallery.innerHTML = markupNothing;
+    }
+  } else {
+    const moviesToRender = Object.values(queueFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
     if (refs.libraryGallery) {
       refs.libraryGallery.innerHTML = markup;
