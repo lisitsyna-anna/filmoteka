@@ -165,8 +165,14 @@ export function offCloseModal() {
   refs.modalBackdrop.classList.remove('show-modal');
   refs.modalContainer.removeEventListener('click', onModalBtnsClick);
   refs.body.classList.remove('no-scroll');
-  loadQueueMoviesFromLocalStorage();
-  loadWatchedMoviesFromLocalStorage();
+
+  if (refs.btnLibraryQueue) {
+    if (refs.btnLibraryQueue.classList.contains('library__btn--active')) {
+      loadQueueMoviesFromLocalStorage();
+    } else {
+      loadWatchedMoviesFromLocalStorage();
+    }
+  }
 }
 
 export function onBackdropClick(e) {
