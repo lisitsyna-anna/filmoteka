@@ -47,18 +47,23 @@
 
 .frame__poster {
   width: 100%;
-  height: 402px;
+  min-height: 402px;
   object-fit: cover;
   border-radius: 5px;
 
   @include tablet {
-    height: 455px;
+    min-height: 455px;
+  }
+
+  @include minidesktop {
+    min-height: 560px;
   }
 
   @include desktop {
-    height: 574px;
+    min-height: 574px;
   }
 }
+
 .frame__title {
   @include font($font-size, 1.16, 500);
   color: $color-text;
