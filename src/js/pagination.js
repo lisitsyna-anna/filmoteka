@@ -20,38 +20,38 @@ export default function pagination(currentPage, allPages) {
     globalCurrentpage = currentPage;
 
     if (currentPage > 1) {
-        markup += `<li>&#129144;</li>`
+        markup += `<li class="pagination-button arrow-left"></li>`
     }
     if (currentPage > 1) {
-        markup += `<li>1</li>`
+        markup += `<li class="pagination-button">1</li>`
     }
     if (currentPage > 4) {
-        markup += `<li>...</li>`
+        markup += `<li class="pagination-button">...</li>`
     }
     if (currentPage > 3) {
-        markup += `<li>${beforeTwoPage}</li>`
+        markup += `<li class="pagination-button">${beforeTwoPage}</li>`
     }
     if (currentPage > 2) {
-        markup += `<li>${beforePage}</li>`
+        markup += `<li class="pagination-button">${beforePage}</li>`
     }
-    markup += `<li><b class="pagination-button pagination--current" >${currentPage}</b></li>`
+    markup += `<li class="pagination-button"><b class = "pagination--current">${currentPage}</b></li>`
 
     if (allPages - 1 > currentPage) {
-        markup += `<li>${afterPage}</li>`
+        markup += `<li class="pagination-button">${afterPage}</li>`
     }
 
     if (allPages - 2 > currentPage) {
-        markup += `<li>${afterTwoPage}</li>`
+        markup += `<li class="pagination-button">${afterTwoPage}</li>`
     }
 
 
     if (allPages - 3 > currentPage) {
-        markup += `<li>...</li>`
+        markup += `<li class="dots">...</li>`
     }
 
     if (allPages > currentPage) {
-        markup += `<li>${allPages}</li>`
-        markup += `<li>&#129146;<li>`
+        markup += `<li class="pagination-button">${allPages}</li>`
+        markup += `<li class="pagination-button arrow-right"><li>`
     }
 
     paginationBox.innerHTML = markup;
@@ -64,6 +64,7 @@ function handlerPagination(evt) {
         return
     }
     if (evt.target.textContent === "🡸") {
+        //console.log(evt.target.textContent);
         if (searchValue) {
             getSearchMovies(searchValue, globalCurrentPage -= 1).then(data => {
                 refs.galleryMovies.innerHTML = data.map(createMarkup);

@@ -36,11 +36,12 @@
 }
 
 .pagination--current {
-    width: 40px;
-    height: 40px;
+    //width: 40px;
+    //height: 40px;
     border-radius: 5px;
     background-color: $color-accent;
     color: $color-text-lighter;
+    padding: 12px 13px;
 }
 
 .arrow-left,
