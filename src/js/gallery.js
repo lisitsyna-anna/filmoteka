@@ -15,8 +15,6 @@ export async function onFormSubmit(e) {
 
   refs.notification.textContent = '';
 
-  page = 1;
-
   const searchResult = e.target.elements.searchQuery.value.trim().toLowerCase();
 
   if (searchResult) {
