@@ -1,6 +1,7 @@
 import { refs } from './refs';
 import { clearGallery } from './supportFunctions';
 import { getSearchMovies, renderMoviesGallery } from './API/search-movies';
+import { spinnerPlay, spinnerStop } from './spinner';
 
 let page = 1;
 
@@ -10,6 +11,7 @@ if (refs.formSearch) {
 
 export async function onFormSubmit(e) {
   e.preventDefault();
+  spinnerPlay();
 
   refs.notification.textContent = '';
 
@@ -33,6 +35,7 @@ export async function onFormSubmit(e) {
   } else {
     notification();
   }
+  spinnerStop();
 }
 
 function notification() {
