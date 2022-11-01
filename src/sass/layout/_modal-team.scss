@@ -178,14 +178,18 @@
 
   @include mobile {
     //  flex-basis: calc(100% / 2 - 20px);
-    width: 140px;
+    // width: 140px;
+    max-width: 330px;
+  }
+  @include bigmobile {
+    flex-basis: calc(100% / 2 - 20px);
   }
   @include tablet {
     flex-basis: calc(100% / 3 - 25px);
   }
-  @include desktop {
-    flex-basis: calc(100% / 4 - 20px);
-  }
+  // @include desktop {
+  //   flex-basis: calc(100% / 4 - 20px);
+  // }
 
   &:hover {
     transform: scale(1.05);

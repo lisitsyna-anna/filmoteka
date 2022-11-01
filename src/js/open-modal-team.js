@@ -14,7 +14,7 @@ console.log(refs.link);
 
 const objects = [
   {
-    name: 'Irene Creadora',
+    name: 'Iryna Makovoz',
     photo: irene,
     role: 'Team Lead',
     git: 'https://github.com/IreneCreadora',
@@ -81,12 +81,12 @@ const markup = ` <div class="modal__container">
         <li class="team__item">
           <img
             src="${irene}"
-            alt="Irene Creadora"
+            alt="Iryna Makovoz"
             class="team__item-img"
          
           />
           <div class="team__item-data">
-          <p class="team__item-name">Irene Creadora</p>
+          <p class="team__item-name">Iryna Makovoz</p>
           <p class="team__item-role">Team Lead</p>
           <div class="team__item-wrap">
             <a
@@ -277,27 +277,32 @@ const markup = ` <div class="modal__container">
 
 refs.link.addEventListener('click', openModalTeam);
 export function openModalTeam(event) {
-  console.log('hello');
+  // console.log('hello');
   event.preventDefault();
   const modalTeam = basicLightbox.create(markup);
   modalTeam.show();
-
-  if (modalTeam.show) {
-    refs.body.classList.add('no-scroll');
-  }
   const modalClose = document.querySelector('.modal__close');
-  console.log(modalClose);
+  // console.log(modalClose);
   modalClose.addEventListener('click', event => {
     modalTeam.close();
   });
   window.addEventListener('keydown', closeModalTeam);
+  window.addEventListener('click', clickOutsideModal);
   function closeModalTeam(event) {
-    console.log(event.code);
+    // console.log(event.code);
 
     if (event.code !== 'Escape') {
       return;
     }
+
     modalTeam.close();
     window.removeEventListener('keydown', closeModalTeam);
+  }
+  function clickOutsideModal(event) {
+    // console.log(event.target.classList.value);
+    if (event.target.classList.value === 'basicLightbox__placeholder') {
+      modalTeam.close();
+      window.removeEventListener('click', clickOutsideModal);
+    }
   }
 }
