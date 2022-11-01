@@ -14,7 +14,7 @@ let page = 1;
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 // HTTP - запрос на трендовые фильмы - за день
-export async function getTrendingMovies(page = 1) {
+export async function getTrendingMovies(page) {
   try {
     const { data } = await axios.get(
       `${TRENDING_PATH}?api_key=${KEY_API}&page=${page}`
@@ -40,17 +40,15 @@ export function createMarkup({
 
   return `<li class="frame" data-id="${id}">
          <div class="frame__wrap">
-            <p class="frame__raiting">${
-              voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
-            }</p>
+            <p class="frame__raiting">${voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
+    }</p>
            <button type="button" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
-            src="${
-              posterPath
-                ? IMAGE_URL + posterPath
-                : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
-            }"
+            src="${posterPath
+      ? IMAGE_URL + posterPath
+      : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
+    }"
             alt="${title ? title : 'Title coming soon'}"
             class="frame__poster"
             loading="lazy"
@@ -59,11 +57,10 @@ export function createMarkup({
           <div class="frame__info">
             <p class="frame__title">${title ? title : 'Title coming soon'}</p>
             <p class="frame__genres">${genres ? genres : '---'}</p>
-            <p class="frame__year">${
-              new Date(releaseDate).getFullYear()
-                ? new Date(releaseDate).getFullYear()
-                : '---'
-            }</p>
+            <p class="frame__year">${new Date(releaseDate).getFullYear()
+      ? new Date(releaseDate).getFullYear()
+      : '---'
+    }</p>
          
           </div>
           </li>`;
@@ -71,8 +68,9 @@ export function createMarkup({
 
 // Функция, которая вставялет полученные данные на страницу
 export async function renderTrendingMovies() {
+  let firstPage = 1;
   try {
-    const moviesList = await getTrendingMovies();
+    const moviesList = await getTrendingMovies(firstPage);
 
     const markup = [...moviesList].map(createMarkup).join('');
 
