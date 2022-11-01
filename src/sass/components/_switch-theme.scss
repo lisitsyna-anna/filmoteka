@@ -199,9 +199,10 @@ body.dark-theme {
     color: $color-text-lighter;
   }
   & .pagination--current {
-    background-color: $color-accent;
-    color: $color-text;
+    background-color: $color-accent-secondary;
+    color: $color-text-lighter;
   }
+  & .pagination-container,
   & .dots {
     color: $color-text-lighter;
   }
@@ -222,6 +223,29 @@ body.dark-theme {
   }
   & .footer__link {
     color: $color-text-lighter;
+  }
+
+  //   modal-team
+  & .modal__close-first,
+  & .modal__close-second {
+    border: 1px solid #ffffff;
+  }
+  & .modal-wrap {
+    background-color: $bg-body-dark;
+  }
+  & .team__title {
+    color: $color-accent;
+  }
+  & .team__item {
+    background-color: rgba(129, 124, 124, 0.35);
+    box-shadow: 0px 3px 15px $bg-body;
+    transition: $transition-duration;
+  }
+  & .team__item-name {
+    color: $color-text-lighter;
+  }
+  & .team__item-icon {
+    box-shadow: $color-accent;
   }
 
   //   modal-movie
