@@ -151,6 +151,10 @@ body.dark-theme {
   }
 
   //   gallery
+  & .frame:hover,
+  & .frame:focus {
+    box-shadow: 0 0 20px -5px $color-accent;
+  }
   & .frame__title {
     color: $color-text-lighter;
   }
@@ -160,11 +164,28 @@ body.dark-theme {
   & .frame__poster {
     box-shadow: 0px 1px 5px 0px rgba(255, 255, 255, 0.75);
   }
+  & .frame:hover .frame__poster,
+  & .frame:focus .frame__poster {
+    box-shadow: none;
+  }
   & .frame__genres::after {
     background-color: $color-accent;
   }
   & .frame__year {
     color: $color-accent;
+  }
+
+  //   library-gellery
+  .container-nothing__title,
+  .container-nothing__text {
+    color: $color-text-lighter;
+  }
+  .container-nothing__link {
+    color: $color-accent;
+    &:hover,
+    &:focus {
+      color: $color-accent-secondary;
+    }
   }
 
   //   button-up
@@ -235,24 +256,38 @@ body.dark-theme {
     background: linear-gradient(to top, #cccccc, $color-accent-secondary);
     border: solid 1px #5c5252;
   }
-
   & .button-watched__modal {
-    color: #ffffff;
+    color: $color-text-lighter;
     background: $color-accent-secondary;
   }
-
   & .button-queue__modal {
     border: 1px solid #000000;
     background: #cccccc;
   }
-
   & .vote-average {
-    color: #ffffff;
+    color: $color-text-lighter;
     background: $color-accent-secondary;
   }
-
   & .vote-count {
     background: #cccccc;
     color: $color-text;
+  }
+
+  //   modal trailler
+  & .backdrop-trailer {
+    background-color: #000000fb;
+  }
+  & .modal-trailer {
+    background-color: $bg-body-dark;
+    box-shadow: 0px 1px 3px rgba(255, 0, 0, 0.12),
+      0px 1px 1px rgba(255, 3, 3, 0.14), 0px 2px 1px rgba(182, 181, 181, 0.2);
+  }
+  & .watch-trailer-btn {
+    background-color: $color-accent;
+    color: $color-text-lighter;
+  }
+  & .watch-trailer-btn:hover,
+  & .watch-trailer-btn:focus {
+    background-color: $color-accent-secondary;
   }
 }
