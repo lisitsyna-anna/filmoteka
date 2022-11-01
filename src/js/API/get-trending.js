@@ -4,7 +4,8 @@ import { refs } from '../refs';
 import { KEY_API } from './api-params';
 import { IMAGE_URL } from './api-params';
 import { getGenres } from './get-genres';
-import { currentPage, defineResultsPerPage } from '../pagination';
+import pagination from '../pagination'
+
 
 const TRENDING_PATH = '/trending/movie/day';
 let page = 1;
@@ -12,13 +13,12 @@ let page = 1;
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 // HTTP - запрос на трендовые фильмы - за день
-export async function getTrendingMovies() {
+export async function getTrendingMovies(page = 1) {
   try {
     const { data } = await axios.get(
-      `${TRENDING_PATH}?api_key=${KEY_API}&page=${currentPage}`
+      `${TRENDING_PATH}?api_key=${KEY_API}&page=${page}`
     );
-    const size = defineResultsPerPage();
-
+    pagination(data.page, data.total_pages)
     return data.results;
   } catch (error) {
     console.log('Something wrong with API', error.message);

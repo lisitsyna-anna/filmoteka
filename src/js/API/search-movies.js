@@ -3,6 +3,7 @@ import genresList from './genres-list';
 import { getGenres } from './get-genres';
 import { IMAGE_URL } from './api-params';
 import { KEY_API } from './api-params';
+import pagination from '../pagination'
 
 const SEARCH_PATH = '/search/movie';
 const language = 'en-US';
@@ -13,7 +14,7 @@ async function getSearchMovies(name, page) {
   const { data } = await axios.get(
     `${SEARCH_PATH}?api_key=${KEY_API}&query=${name}&page=${page}&language=${language}`
   );
-
+  pagination(data.page, data.total_pages)
   return data.results;
 }
 
