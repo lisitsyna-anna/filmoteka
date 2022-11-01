@@ -10,7 +10,7 @@ import nelia from '../images/team/nelia.jpg';
 import sofiia from '../images/team/sofiia.jpg';
 
 import { refs } from './refs';
-console.log(refs.link);
+// console.log(refs.link);
 
 const objects = [
   {
