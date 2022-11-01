@@ -6,6 +6,8 @@ import { IMAGE_URL } from './api-params';
 import { getGenres } from './get-genres';
 import pagination from '../pagination';
 
+import { renderTrailerBtn } from '../API/get-movie-trailer';
+
 const TRENDING_PATH = '/trending/movie/day';
 let page = 1;
 
@@ -37,6 +39,11 @@ export function createMarkup({
   const genres = getGenres(genresList, genreIds);
 
   return `<li class="frame" data-id="${id}">
+         <div class="frame__wrap">
+            <p class="frame__raiting">${
+              voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
+            }</p>
+           <button type="button" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
             src="${
@@ -48,6 +55,7 @@ export function createMarkup({
             class="frame__poster"
             loading="lazy"
           />
+            </div>
           <div class="frame__info">
             <p class="frame__title">${title ? title : 'Title coming soon'}</p>
             <p class="frame__genres">${genres ? genres : '---'}</p>
@@ -56,9 +64,7 @@ export function createMarkup({
                 ? new Date(releaseDate).getFullYear()
                 : '---'
             }</p>
-            <p class="frame__raiting">${
-              voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
-            }</p>
+         
           </div>
           </li>`;
 }
@@ -72,6 +78,12 @@ export async function renderTrendingMovies() {
 
     if (refs.galleryMovies) {
       refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
+
+      // render trailer btn
+      const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+      selector.forEach(element => {
+        renderTrailerBtn(element.dataset.id, element);
+      });
     }
   } catch (error) {
     console.log('Something wrong with API', error.message);

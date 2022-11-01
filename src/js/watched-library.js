@@ -5,6 +5,7 @@ import {
   loadFromLocalStorage,
 } from './local-storage';
 import { refs } from './refs';
+import { renderTrailerBtn } from './API/get-movie-trailer';
 
 export const NOTHING_IMG =
   'https://cdn.pixabay.com/photo/2021/10/25/00/00/mike-wazowski-6739521_640.png';
@@ -32,6 +33,12 @@ export function onOpenWatchedLibrary() {
     if (refs.libraryGallery) {
       refs.libraryGallery.innerHTML = markup;
     }
+
+    const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+
+    selector.forEach(element => {
+      renderTrailerBtn(element.dataset.id, element);
+    });
   }
 }
 
@@ -46,18 +53,35 @@ export function createMarkupWatchedMovies({
   const genresForRender = concatGenres(genres.map(genre => genre.name));
 
   return `<li class="frame" data-id="${id}">
+         <div class="frame__wrap">
+            <p class="frame__raiting">${
+              voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
+            }</p>
+           <button type="button" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
-            src="${IMAGE_URL + posterPath}"
-            alt="${title}"
+            src="${
+              posterPath
+                ? IMAGE_URL + posterPath
+                : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
+            }"
+            alt="${title ? title : 'Title coming soon'}"
             class="frame__poster"
             loading="lazy"
           />
+            </div>
+
           <div class="frame__info">
-            <p class="frame__title">${title}</p>
-            <p class="frame__genres">${genresForRender}</p>
-            <p class="frame__year">${new Date(releaseDate).getFullYear()}</p>
-            <p class="frame__raiting">${voteAverage.toFixed(1)}</p>
+            <p class="frame__title">${title ? title : 'Title coming soon'}</p>
+            <p class="frame__genres">${
+              genresForRender ? genresForRender : '---'
+            }</p>
+            <p class="frame__year">${
+              new Date(releaseDate).getFullYear()
+                ? new Date(releaseDate).getFullYear()
+                : '---'
+            }</p>
+         
           </div>
           </li>`;
 }
@@ -108,6 +132,12 @@ export function loadWatchedMoviesFromLocalStorage() {
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
     if (refs.libraryGallery) {
       refs.libraryGallery.innerHTML = markup;
+
+      const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+
+      selector.forEach(element => {
+        renderTrailerBtn(element.dataset.id, element);
+      });
     }
   }
 }
@@ -126,6 +156,11 @@ export function loadQueueMoviesFromLocalStorage() {
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
     if (refs.libraryGallery) {
       refs.libraryGallery.innerHTML = markup;
+      const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+
+      selector.forEach(element => {
+        renderTrailerBtn(element.dataset.id, element);
+      });
     }
   }
 }
