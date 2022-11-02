@@ -1,3 +1,28 @@
+@keyframes shakeY {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
 .btn-up-wrapper {
   display: none;
   position: fixed;
@@ -6,14 +31,18 @@
   z-index: 99;
   width: 100px;
   height: 100px;
-  @include font($font-size, 1.67, 500, null);
+  @include font(14px, 1.67, 500, null);
   text-transform: uppercase;
+  color: $color-accent-secondary;
+  text-shadow: 1px 1px 2px $color-text-light, 0 0 1em $color-text-light,
+    0 0 0.2em $color-text-lighter;
   transition: text-shadow $transition-duration $transition-animation;
-
+  animation: shakeY 2.5s;
   &:hover {
-    font-size: 14px;
-    text-shadow: 1px 1px 1px $color-accent-secondary, 0 0 1em $color-text-light,
-      0 0 0.2em $color-text-lighter;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px $color-accent-secondary;
+    color: $color-text-light;
+    animation: shakeY 2.5s infinite alternate;
   }
   &__text {
     text-align: center;
