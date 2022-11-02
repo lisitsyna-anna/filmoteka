@@ -1,7 +1,22 @@
+@keyframes pulsate {
+  from {
+    transform: scale3d(1, 1, 1);
+    filter: drop-shadow(none);
+  }
+  50% {
+    transform: scale3d(1.15, 1.15, 1.15);
+    filter: drop-shadow(0 0 2px $color-accent);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    filter: drop-shadow(none);
+  }
+}
+
 .footer {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #f7f7f7;
+  background-color: $bg-footer;
   &__wrapper {
     @include tablet {
       display: flex;
@@ -36,8 +51,10 @@
     }
   }
   &__icon {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    animation: pulsate 2s infinite alternate;
+    text-shadow: 0 0 1px #545454, 0 0 4px #545454;
   }
   &__link {
     @include font(14px, 1.14, 400, null);
@@ -46,8 +63,14 @@
     color: $color-text-light;
     margin-left: 5px;
     text-decoration: underline;
+    border: transparent;
+    background-color: $bg-footer;
     @include tablet {
       @include font(16px, 1.19, 400, null);
     }
+  }
+  &__accent {
+    color: $color-accent;
+    font-weight: 500;
   }
 }
