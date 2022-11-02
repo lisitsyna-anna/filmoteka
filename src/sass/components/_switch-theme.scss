@@ -140,6 +140,7 @@ body.dark-theme {
           url(../images/main-header-bg-desktop-2x.jpg);
       }
     }
+    box-shadow: 0px 1px 35px 3px $color-accent, 0px 1px 5px 0px $color-accent;
   }
 
   //   swithcer
@@ -162,14 +163,22 @@ body.dark-theme {
     color: $color-accent;
   }
   & .frame__poster {
-    box-shadow: 2px 2px 8px 0.1px $color-accent-secondary,
-      -2px -2px 8px 0.1px $color-border;
+    // red and white shadow
+    // box-shadow: 2px 2px 8px 0.1px $color-accent-secondary,
+    //   -2px -2px 8px 0.1px $color-border;
+
+    // just red shadow
+    // box-shadow: 0 0 20px -5px $color-accent-secondary;
+
+    // minimal white shadow
+    box-shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.75);
   }
   & .frame:hover .frame__poster,
   & .frame:focus .frame__poster {
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
     box-shadow: none;
+    filter: saturate(150%);
   }
   & .frame__genres::after {
     background-color: $color-accent;
@@ -218,6 +227,7 @@ body.dark-theme {
   //   footer
   & .footer {
     background-color: $bg-footer-dark;
+    box-shadow: 0px -6px 40px 6px $color-accent, 0px -1px 5px 0px $color-accent;
   }
   & .footer__copyright {
     color: $color-text-lighter;
