@@ -58,7 +58,7 @@ export default function pagination(currentPage, allPages) {
     paginationBox.innerHTML = markup;
 }
 function handlerPagination(evt) {
-    const page = evt.target.textContent
+    const page = evt.target.textContent;
     const searchValue = refs.formSearch.searchQuery.value;
 
     if (evt.target.nodeName !== 'LI') {
@@ -67,31 +67,34 @@ function handlerPagination(evt) {
 
 
     if (evt.target.textContent === 'Next >') {
-        globalCurrentPage = page;
+        //console.log('page', page);
+        //console.log(globalCurrentPage);
+        //globalCurrentPage = page;
+        //console.log('after', globalCurrentPage);
 
         if (searchValue) {
             getSearchMovies(searchValue, (globalCurrentpage += 1)).then(data => {
-                refs.galleryMovies.innerHTML = data.map(createMarkup);
+                refs.galleryMovies.innerHTML = data.map(createMarkup).join('');
             });
             return;
         }
         getTrendingMovies((globalCurrentpage += 1)).then(data => {
-            refs.galleryMovies.innerHTML = data.map(createMarkup);
+            refs.galleryMovies.innerHTML = data.map(createMarkup).join('');
         });
         return;
     }
 
     if (evt.target.textContent === '< Previous') {
-        globalCurrentPage = page;
+        //globalCurrentPage = page;
 
         if (searchValue) {
             getSearchMovies(searchValue, (globalCurrentpage -= 1)).then(data => {
-                refs.galleryMovies.innerHTML = data.map(createMarkup);
+                refs.galleryMovies.innerHTML = data.map(createMarkup).join('');
             });
             return;
         }
         getTrendingMovies((globalCurrentpage -= 1)).then(data => {
-            refs.galleryMovies.innerHTML = data.map(createMarkup);
+            refs.galleryMovies.innerHTML = data.map(createMarkup).join('');
         });
         return;
     }
@@ -102,11 +105,11 @@ function handlerPagination(evt) {
 
     if (searchValue) {
         getSearchMovies(searchValue, page).then(data => {
-            refs.galleryMovies.innerHTML = data.map(createMarkup);
+            refs.galleryMovies.innerHTML = data.map(createMarkup).join('');
         })
         return
     }
     getTrendingMovies(page, globalCurrentpage).then(data => {
-        refs.galleryMovies.innerHTML = data.map(createMarkup);
+        refs.galleryMovies.innerHTML = data.map(createMarkup).join('');
     })
 }
