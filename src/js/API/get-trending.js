@@ -81,15 +81,13 @@ export async function renderTrendingMovies() {
 
     const markup = [...moviesList].map(createMarkup).join('');
 
-    if (refs.galleryMovies) {
-      refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
+    refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
 
-      // render trailer btn
-      const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
-      selector.forEach(element => {
-        renderTrailerBtn(element.dataset.id, element);
-      });
-    }
+    // render trailer btn
+    const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+    selector.forEach(element => {
+      renderTrailerBtn(element.dataset.id, element);
+    });
   } catch (error) {
     console.log('Something wrong with API', error.message);
   }

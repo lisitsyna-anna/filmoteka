@@ -20,7 +20,6 @@ function saveToLocalStorage(key, value) {
 }
 
 function checkLocalStorageWatchedMovies(btn, selectedMovie) {
-  // console.log('onAddToWatchedBtn', onAddToWatchedBtn);
   let localWatchedMovies = loadFromLocalStorage(KEY_WATCHED_MOVIES);
 
   if (localWatchedMovies) {

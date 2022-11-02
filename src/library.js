@@ -1,9 +1,9 @@
 import { spinnerPlay, spinnerStop } from './js/spinner';
-import { renderTrendingMovies } from './js/API/get-trending';
+// import { renderTrendingMovies } from './js/API/get-trending';
 
-import { renderModalMovie } from './js/API/get-movie-info';
+// import { renderModalMovie } from './js/API/get-movie-info';
 
-import { onFormSubmit } from './js/gallery';
+// import { onFormSubmit } from './js/gallery';
 import { openModalTeam } from './js/open-modal-team';
 
 import './js/switch-bg-theme';
