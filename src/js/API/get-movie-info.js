@@ -19,7 +19,6 @@ import {
 export let selectedMovie;
 
 // API
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 async function getMovieById(id) {
   try {
     const { data } = await axios.get(
@@ -36,7 +35,8 @@ if (refs.galleryMovies) {
 }
 
 async function openModal(e) {
-  if (e.target.nodeName !== 'LI' && e.target.nodeName !== 'IMG') {
+  const film = e.target.closest('.frame');
+  if (!film) {
     return;
   }
   // create

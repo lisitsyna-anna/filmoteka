@@ -28,15 +28,11 @@ if (refs.libraryGallery) {
 let idMovie;
 
 export function onLibraryGallery(e) {
-  if (
-    (e.target.nodeName !== 'LI' && e.target.nodeName !== 'IMG') ||
-    e.target.classList.contains('container-nothing') ||
-    e.target.classList.contains('container-nothing__img')
-  ) {
+  idMovie = Number(e.target.dataset.id);
+  const film = e.target.closest('.frame');
+  if (!film) {
     return;
   }
-
-  idMovie = Number(e.target.dataset.id);
 
   let markup = '';
 

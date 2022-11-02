@@ -40,27 +40,34 @@ export function createMarkup({
 
   return `<li class="frame" data-id="${id}">
          <div class="frame__wrap">
-            <p class="frame__raiting">${voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
-    }</p>
+            <p class="frame__raiting">${
+              voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
+            }</p>
            <button type="button" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
-            src="${posterPath
-      ? IMAGE_URL + posterPath
-      : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
-    }"
+            src="${
+              posterPath
+                ? IMAGE_URL + posterPath
+                : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
+            }"
             alt="${title ? title : 'Title coming soon'}"
             class="frame__poster"
             loading="lazy"
           />
             </div>
-          <div class="frame__info">
-            <p class="frame__title">${title ? title : 'Title coming soon'}</p>
-            <p class="frame__genres">${genres ? genres : '---'}</p>
-            <p class="frame__year">${new Date(releaseDate).getFullYear()
+          <div class="frame__info" data-id=${id}>
+            <p class="frame__title" data-id=${id}>${
+    title ? title : 'Title coming soon'
+  }</p>
+            <p class="frame__genres" data-id=${id}>${
+    genres ? genres : '---'
+  }</p>
+            <p class="frame__year" data-id=${id}>${
+    new Date(releaseDate).getFullYear()
       ? new Date(releaseDate).getFullYear()
       : '---'
-    }</p>
+  }</p>
          
           </div>
           </li>`;
