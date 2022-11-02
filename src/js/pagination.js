@@ -20,7 +20,7 @@ export default function pagination(currentPage, allPages) {
     globalCurrentpage = currentPage;
 
     if (currentPage > 1) {
-        markup += `<li class="pagination-button-arrow">< Previous</li>`
+        markup += `<li class="pagination-button-arrow-left">< Previous</li>`
     }
     if (currentPage > 1) {
         markup += `<li class="pagination-button">1</li>`
