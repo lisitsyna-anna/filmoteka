@@ -5,7 +5,7 @@ import {
   loadFromLocalStorage,
 } from './local-storage';
 import { refs } from './refs';
-import { renderTrailerBtn } from './API/get-movie-trailer';
+import { renderBtn } from './API/get-movie-trailer';
 
 export const NOTHING_IMG =
   'https://cdn.pixabay.com/photo/2021/10/25/00/00/mike-wazowski-6739521_640.png';
@@ -30,11 +30,7 @@ export function onOpenWatchedLibrary() {
 
     refs.libraryGallery.innerHTML = markup;
 
-    const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
-
-    selector.forEach(element => {
-      renderTrailerBtn(element.dataset.id, element);
-    });
+    renderBtn();
   }
 }
 
@@ -99,7 +95,9 @@ export function concatGenres(arrOfGenresName) {
 export function createMarkupWhenLocalStorageEmpty() {
   return `
   <li class="container-nothing">
-    <img
+    <img 
+        width="260" 
+        height="340"
         class="container-nothing__img"
         src="${NOTHING_IMG}"
         alt="mike"
@@ -128,12 +126,7 @@ export function loadWatchedMoviesFromLocalStorage() {
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
 
     refs.libraryGallery.innerHTML = markup;
-
-    const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
-
-    selector.forEach(element => {
-      renderTrailerBtn(element.dataset.id, element);
-    });
+    renderBtn();
   }
 }
 
@@ -149,11 +142,8 @@ export function loadQueueMoviesFromLocalStorage() {
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
     if (refs.libraryGallery) {
       refs.libraryGallery.innerHTML = markup;
-      const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
 
-      selector.forEach(element => {
-        renderTrailerBtn(element.dataset.id, element);
-      });
+      renderBtn();
     }
   }
 }

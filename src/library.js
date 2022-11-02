@@ -10,7 +10,7 @@ import './js/switch-bg-theme';
 
 import { scrollFunction } from './js/button-up';
 
-import { onCliсkBtnWatch } from './js/API/get-movie-trailer';
+// import { onCliсkBtnWatch } from './js/API/get-movie-trailer';
 import { onCliсkBtnWatchGallery } from './js/API/get-movie-trailer';
 
 import { onOpenQueueLibrary } from './js/queue-library';
@@ -19,6 +19,7 @@ import { onOpenWatchedLibrary } from './js/watched-library';
 
 import { loadWatchedMoviesFromLocalStorage } from './js/watched-library';
 import { onLibraryGallery } from './js/open-modal-library';
+import { refs } from './js/refs';
 
 ///Запуск спінера при завантаженні
 spinnerPlay();
@@ -32,3 +33,5 @@ window.addEventListener('scroll', scrollFunction);
 
 // При завантаженні сторінки My library рендериться картки з локал сторадж watchedMovies
 window.addEventListener('load', loadWatchedMoviesFromLocalStorage);
+
+refs.libraryGallery.addEventListener('click', onCliсkBtnWatchGallery);
