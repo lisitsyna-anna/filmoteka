@@ -8,13 +8,33 @@
       0 0 0.2em $color-text-lighter;
   }
   &:hover .logo__icon {
-    filter: drop-shadow(0 0 0.2em $color-accent-secondary);
+    filter: drop-shadow(0 0 7px $color-accent-secondary);
+    animation: none;
+  }
+}
+
+@keyframes pulsate {
+  from {
+    transform: scale3d(1, 1, 1);
+    stroke: $color-border;
+    filter: drop-shadow(none);
+  }
+  50% {
+    transform: scale3d(1.15, 1.15, 1.15);
+    stroke: $color-accent;
+    filter: drop-shadow(0 0 2px $bg-body-dark);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    stroke: $color-border;
+    filter: drop-shadow(none);
   }
 }
 
 .logo__icon {
   fill: transparent;
   stroke: $color-text-lighter;
+  animation: pulsate 2.5s infinite alternate;
 }
 
 .logo__text {
