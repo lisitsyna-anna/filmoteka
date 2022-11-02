@@ -39,36 +39,8 @@ export async function renderTrailerBtn(movieId, selector) {
 // /-------------------------------------/
 
 const cardRef = document.querySelector('.modal__content');
-if (cardRef) {
-  cardRef.addEventListener('click', onCliсkBtnWatch);
-}
 
-const galleryRef = document.querySelector('.gallery__list');
-if (galleryRef) {
-  galleryRef.addEventListener('click', onCliсkBtnWatchGallery);
-}
-
-if (refs.libraryGallery) {
-  refs.libraryGallery.addEventListener('click', onCliсkBtnWatchGallery);
-}
-
-export async function onCliсkBtnWatch(event) {
-  try {
-    if (event.target.classList.contains('watch-trailer-btn')) {
-      const filmId = event.target.dataset.id;
-
-      const results = await fetchMovieTrailer(filmId);
-
-      const youtubeKey = results[0].key;
-
-      renderTrailer(youtubeKey);
-      showTrailerWindow();
-      closeOnEscClick(event);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
+cardRef.addEventListener('click', onCliсkBtnWatchGallery);
 
 // виклик трейлера на галерею
 
@@ -120,9 +92,9 @@ const backdropTrailer = document.querySelector('.backdrop-trailer');
 
 export function closeTrailer() {
   trailerPlayerRef.innerHTML = '';
-  if (backdropTrailer) {
-    backdropTrailer.classList.add('is-hidden');
-  }
+
+  backdropTrailer.classList.add('is-hidden');
+
   document.removeEventListener('keydown', closeOnEscClick);
 }
 
@@ -130,12 +102,18 @@ export function closeOnBackdropClick(e) {
   if (!e.target === e.currentTarget) return;
   closeTrailer();
 }
-if (backdropTrailer) {
-  backdropTrailer.addEventListener('click', closeOnBackdropClick);
-}
+
+backdropTrailer.addEventListener('click', closeOnBackdropClick);
 
 export function closeOnEscClick(e) {
   if (e.code === 'Escape') {
     closeTrailer();
   }
+}
+
+export function renderBtn() {
+  const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+  selector.forEach(element => {
+    renderTrailerBtn(element.dataset.id, element);
+  });
 }

@@ -6,7 +6,7 @@ import {
   createMarkupWatchedMovies,
 } from './watched-library';
 
-import { renderTrailerBtn } from './API/get-movie-trailer';
+import { renderBtn } from './API/get-movie-trailer';
 
 const KEY_QUEUE_MOVIES = 'queueMovies';
 
@@ -30,11 +30,7 @@ export function onOpenQueueLibrary(e) {
     if (refs.libraryGallery) {
       refs.libraryGallery.innerHTML = markup;
 
-      const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
-
-      selector.forEach(element => {
-        renderTrailerBtn(element.dataset.id, element);
-      });
+      renderBtn();
     }
   }
 }
