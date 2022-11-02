@@ -44,7 +44,7 @@
     padding: 12px 13px;
 }
 
-.arrow-left,
+/*.arrow-left,
 .arrow-right {
     width: 40px;
     height: 40px;
@@ -54,12 +54,20 @@
     stroke: #000;
     background-position: center;
     background-repeat: no-repeat;
-}
+}*/
 
-.arrow-left {
+/*.arrow-left {
     background-image: url(/src/images/arrow-left.svg);
 }
 
 .arrow-right {
     background-image: url(/src/images/arrow-right.svg);
+}*/
+
+.pagination-button-arrow {
+    color: $color-accent;
+}
+
+.pagination-button-arrow-left {
+    margin-right: 16px;
 }
