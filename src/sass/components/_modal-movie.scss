@@ -29,7 +29,8 @@
   transition: transform 300ms ease-in-out;
 
   @media screen and (min-width: 768px) {
-    max-width: 704px;
+    min-width: 704px;
+    min-height: 552px;
     padding: 40px 72px 40px 36px;
   }
 
@@ -88,6 +89,7 @@
   font-size: 19px;
   line-height: 1.15;
   font-weight: 500;
+  margin: 20px 0;
 
   @media screen and (min-width: 1200px) {
     font-size: 30px;
@@ -99,6 +101,7 @@
   height: 357px;
   width: 240px;
   border-radius: 5px;
+  margin: 0 auto;
 
   @media screen and (min-width: 768px) {
     height: 100%;
