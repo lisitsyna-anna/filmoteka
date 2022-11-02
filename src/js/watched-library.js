@@ -15,10 +15,8 @@ if (refs.btnLibraryWatched) {
 }
 
 export function onOpenWatchedLibrary() {
-  if (refs.btnLibraryWatched) {
-    refs.btnLibraryWatched.classList.add('library__btn--active');
-    refs.btnLibraryQueue.classList.remove('library__btn--active');
-  }
+  refs.btnLibraryWatched.classList.add('library__btn--active');
+  refs.btnLibraryQueue.classList.remove('library__btn--active');
 
   const moviesFromLocalStorage = loadFromLocalStorage(KEY_WATCHED_MOVIES);
 
@@ -30,9 +28,7 @@ export function onOpenWatchedLibrary() {
     const moviesToRender = Object.values(moviesFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
 
-    if (refs.libraryGallery) {
-      refs.libraryGallery.innerHTML = markup;
-    }
+    refs.libraryGallery.innerHTML = markup;
 
     const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
 
@@ -126,21 +122,18 @@ export function loadWatchedMoviesFromLocalStorage() {
   if (!moviesFromLocalStorage || !Object.keys(moviesFromLocalStorage).length) {
     const markupNothing = createMarkupWhenLocalStorageEmpty();
 
-    if (refs.libraryGallery) {
-      refs.libraryGallery.innerHTML = markupNothing;
-    }
+    refs.libraryGallery.innerHTML = markupNothing;
   } else {
     const moviesToRender = Object.values(moviesFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
-    if (refs.libraryGallery) {
-      refs.libraryGallery.innerHTML = markup;
 
-      const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+    refs.libraryGallery.innerHTML = markup;
 
-      selector.forEach(element => {
-        renderTrailerBtn(element.dataset.id, element);
-      });
-    }
+    const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
+
+    selector.forEach(element => {
+      renderTrailerBtn(element.dataset.id, element);
+    });
   }
 }
 
@@ -150,9 +143,7 @@ export function loadQueueMoviesFromLocalStorage() {
   if (!queueFromLocalStorage || !Object.keys(queueFromLocalStorage).length) {
     const markupNothing = createMarkupWhenLocalStorageEmpty();
 
-    if (refs.libraryGallery) {
-      refs.libraryGallery.innerHTML = markupNothing;
-    }
+    refs.libraryGallery.innerHTML = markupNothing;
   } else {
     const moviesToRender = Object.values(queueFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
