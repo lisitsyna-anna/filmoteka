@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { refs } from '../refs';
-import { KEY_API } from './api-params';
+import { KEY_API, IMAGE_URL } from './api-params';
 import { renderTrailerBtn } from '../API/get-movie-trailer';
 import {
   loadWatchedMoviesFromLocalStorage,
@@ -19,7 +19,6 @@ import {
 export let selectedMovie;
 
 // API
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 async function getMovieById(id) {
   try {
     const { data } = await axios.get(
@@ -36,7 +35,8 @@ if (refs.galleryMovies) {
 }
 
 async function openModal(e) {
-  if (e.target.nodeName !== 'LI' && e.target.nodeName !== 'IMG') {
+  const film = e.target.closest('.frame');
+  if (!film) {
     return;
   }
   // create
@@ -116,14 +116,13 @@ function createMarkupModal({
   }
 
   const modalGenres = genres.map(genre => genre.name);
-  // function generesOther(modalGenres) {
-  //   if (modalGenres.length > 2) {
-  //   modalGenres.slice(0, 2).join(', ') + ', Other';
-  // }
-  // }
 
   return `
-        <img class="img-modal" src="https://image.tmdb.org/t/p/w500${posterPath}" alt="${title}" data-id=${id} />
+        <img class="img-modal"    src="${
+          posterPath
+            ? IMAGE_URL + posterPath
+            : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
+        }" alt="${title}" data-id=${id} />
         <div class="container-modal">
           <b class="title-modal">${title}</b>
           <table class="table">

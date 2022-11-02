@@ -71,16 +71,18 @@ export function createMarkupWatchedMovies({
           />
             </div>
 
-          <div class="frame__info">
-            <p class="frame__title">${title ? title : 'Title coming soon'}</p>
-            <p class="frame__genres">${
-              genresForRender ? genresForRender : '---'
-            }</p>
-            <p class="frame__year">${
-              new Date(releaseDate).getFullYear()
-                ? new Date(releaseDate).getFullYear()
-                : '---'
-            }</p>
+          <div class="frame__info" data-id=${id}>
+            <p class="frame__title" data-id=${id}>${
+    title ? title : 'Title coming soon'
+  }</p>
+            <p class="frame__genres" data-id=${id}>${
+    genresForRender ? genresForRender : '---'
+  }</p>
+            <p class="frame__year" data-id=${id}>${
+    new Date(releaseDate).getFullYear()
+      ? new Date(releaseDate).getFullYear()
+      : '---'
+  }</p>
          
           </div>
           </li>`;
