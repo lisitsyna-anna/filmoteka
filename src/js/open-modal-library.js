@@ -11,6 +11,7 @@ import {
   onBackdropClick,
   offCloseModal,
 } from './API/get-movie-info';
+import { IMAGE_URL } from './API/api-params';
 
 import { refs } from './refs';
 
@@ -105,7 +106,11 @@ export function createMarkupModal({
   const modalGenres = genres.map(genre => genre.name);
 
   return `
-          <img class="img-modal" src="https://image.tmdb.org/t/p/w500${posterPath}" alt="${title}" data-id=${id} />
+          <img class="img-modal"    src="${
+            posterPath
+              ? IMAGE_URL + posterPath
+              : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
+          }" alt="${title}" data-id=${id} />
           <div class="container-modal">
             <b class="title-modal">${title}</b>
             <table class="table">
