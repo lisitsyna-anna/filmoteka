@@ -6,9 +6,9 @@ _Привіт!_ :wave:
 
 Після завершення курсу **JavaScript** , нам потрібно було **закріпити**
 :pushpin: отримані знання і навички **реалізувавши** :page_with_curl: практичний
-проект протягом 7 днів.
+проект протягом 9 днів.
 
-:art: Дизайнерами для нас був розроблений **макет командного проекту** - 3
+:art: Дизайнерами для нас був розроблений **макет командного проекту** - три
 версії сайту **“Filmoteka”**: mobile, tablet, desktop
 
 :hammer_and_wrench: Також нам було надано ТЗ з описом фунціоналу майбутнього
@@ -30,7 +30,7 @@ _Привіт!_ :wave:
 
 - [**Front-end developer**: Yuliia Tymchuk](https://github.com/yuliia-tymchuk)
 
-- [**Front-end developerr**: Volodymyr Tymoshchuk](https://github.com/Vobzilla)
+- [**Front-end developer**: Volodymyr Tymoshchuk](https://github.com/Vobzilla)
 
 - [**Front-end developer**: Sofiia Korostenska](https://github.com/SofiiaKorost)
 
