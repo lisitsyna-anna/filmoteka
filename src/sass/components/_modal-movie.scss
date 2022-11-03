@@ -28,12 +28,13 @@
   transform: translate(-50%, -50%) scale(1.1);
   transition: transform 300ms ease-in-out;
 
-  @media screen and (min-width: 768px) {
-    max-width: 704px;
+  @include tablet {
+    min-width: 704px;
+    min-height: 552px;
     padding: 40px 72px 40px 36px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include minidesktop {
     max-width: 806px;
     min-height: 558px;
     padding: 40px 12px 40px 12px;
@@ -77,7 +78,7 @@
 }
 
 .modal__content {
-  @media screen and (min-width: 768px) {
+  @include tablet {
     display: flex;
   }
 }
@@ -88,8 +89,9 @@
   font-size: 19px;
   line-height: 1.15;
   font-weight: 500;
+  margin: 20px 0;
 
-  @media screen and (min-width: 1200px) {
+  @include minidesktop {
     font-size: 30px;
     line-height: 1.17;
   }
@@ -99,15 +101,15 @@
   height: 357px;
   width: 240px;
   border-radius: 5px;
+  margin: 0 auto;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     height: 100%;
     width: 264px;
     height: 374px;
     margin: 0 68px 0 0;
   }
-
-  @media screen and (min-width: 1200px) {
+  @include minidesktop {
     width: 375px;
     height: 478px;
     margin: 0 16px 0 0;
@@ -129,7 +131,7 @@
   margin-right: 30px;
   color: #8c8c8c;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     margin-right: 41px;
   }
 }
@@ -152,11 +154,11 @@
   max-height: 120px;
   overflow: auto;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     max-height: 236px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include minidesktop {
     margin-bottom: 0px;
   }
 }
@@ -196,13 +198,13 @@
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     font-size: 12px;
     padding: 14px 7px;
     min-width: 125px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include minidesktop {
     min-width: 136px;
     padding: 14px 7px;
   }
@@ -224,14 +226,14 @@
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     margin-left: 15px;
     min-width: 125px;
     padding: 14px 7px;
     font-size: 13px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include minidesktop {
     min-width: 136px;
     padding: 14px 7px;
   }
