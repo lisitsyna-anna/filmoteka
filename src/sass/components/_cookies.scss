@@ -1,0 +1,152 @@
+.cookies {
+  position: fixed;
+  left: calc(10px / 2);
+  bottom: calc(10px / 2);
+  max-width: calc(100% - 10px);
+  padding: 15px;
+  transform: translateX(-120%) scale(0.8);
+  background-color: $bg-body;
+  border-radius: 20px;
+  box-shadow: 5px -5px 40px $color-accent;
+
+  transition: calc(250ms * 5) ease-in-out;
+  transition-property: transform;
+
+  @include mobile {
+    width: 300px;
+    height: 120px;
+  }
+  @include bigmobile {
+    height: 100px;
+    padding: 10px;
+  }
+
+  @include tablet {
+    width: 350px;
+  }
+
+  &:not(.is-shown) {
+    transition-delay: 150ms;
+  }
+
+  &.is-shown {
+    transform: translateX(0);
+  }
+}
+
+.cookies__header {
+  display: flex;
+  align-items: center;
+}
+
+.cookies__title {
+  font-family: $font-stack;
+  font-size: 17px;
+  color: $color-text;
+  text-transform: uppercase;
+  @include bigmobile {
+    font-size: 18px;
+  }
+  @include tablet {
+    font-size: 18px;
+  }
+}
+
+.cookies__body {
+  @include tablet {
+    margin-bottom: 10px;
+  }
+}
+
+.cookies__text {
+  color: $color-accent;
+  margin-top: calc(10px / 2);
+  font-size: 14px;
+  line-height: 1.4;
+
+  @include bigmobile {
+    font-size: 12px;
+  }
+  @include tablet {
+    font-size: 13px;
+  }
+}
+
+.cookies__link {
+  color: $color-text;
+  transition: transform $transition-duration $transition-animation,
+    box-shadow $transition-duration $transition-animation,
+    color $transition-duration $transition-animation,
+    decoration $transition-duration $transition-animation;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $color-accent;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes pulsate {
+  from {
+    transform: scale3d(1, 1, 1);
+    filter: drop-shadow(none);
+  }
+  50% {
+    transform: scale3d(1.15, 1.15, 1.15);
+    filter: drop-shadow(0 0 2px $color-accent);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    filter: drop-shadow(none);
+  }
+}
+
+.cookies__btn {
+  position: relative;
+  bottom: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: 1px double $color-accent;
+  border-radius: 10px;
+  margin-left: auto;
+  background-color: transparent;
+  color: $color-accent;
+  animation: pulsate 2s infinite alternate;
+  transition: box-shadow $transition-duration $transition-animation,
+    color $transition-duration $transition-animation,
+    background-color $transition-duration $transition-animation;
+  @include mobile {
+    bottom: 23px;
+    margin-top: calc(10px / 2);
+  }
+
+  @include bigmobile {
+    margin-top: calc(5px / 2);
+    height: 20px;
+    bottom: 1px;
+  }
+
+  @include tablet {
+    margin-top: calc(5px / 2);
+    height: 25px;
+    margin-right: 30px;
+    bottom: 15px;
+  }
+
+  @include desktop {
+    margin-top: calc(5px / 2);
+    height: 25px;
+    margin-right: 30px;
+    bottom: 10px;
+    left: calc(40px / 2);
+  }
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 20px -5px $color-accent;
+    background-color: $color-accent;
+    color: $color-text-lighter;
+    animation: none;
+  }
+}

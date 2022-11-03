@@ -11,6 +11,15 @@ import './js/switch-bg-theme';
 import { scrollFunction } from './js/button-up';
 import { refs } from './js/refs';
 
+import Cookies from 'js-cookie';
+
+import {
+  createMarkupCookies,
+  COOKIE_NAME,
+  expires,
+  cookies,
+} from './js/cookies';
+
 import { onCliсkBtnWatchGallery } from './js/API/get-movie-trailer';
 
 // import { onOpenQueueLibrary } from './js/queue-library';
