@@ -14,11 +14,13 @@ if (refs.btnLibraryQueue) {
   refs.btnLibraryQueue.addEventListener('click', onOpenQueueLibrary);
 }
 
+export let localQueueMovies;
+
 export function onOpenQueueLibrary(e) {
   refs.btnLibraryQueue.classList.add('library__btn--active');
   refs.btnLibraryWatched.classList.remove('library__btn--active');
   const paginationBox = document.querySelector('.pagination-library-container');
-  let localQueueMovies = loadFromLocalStorage(KEY_QUEUE_MOVIES);
+  localQueueMovies = loadFromLocalStorage(KEY_QUEUE_MOVIES);
 
 
   if (!localQueueMovies || !Object.keys(localQueueMovies).length) {
