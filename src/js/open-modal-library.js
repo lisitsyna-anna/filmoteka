@@ -15,17 +15,10 @@ import { IMAGE_URL } from './API/api-params';
 
 import { refs } from './refs';
 
-let watchedMoviesFromLocalStorage;
-
-let queueMoviesFromLocalStorage;
-
-let currentMovie;
-
-if (refs.libraryGallery) {
-  refs.libraryGallery.addEventListener('click', onLibraryGallery);
-}
+refs.libraryGallery.addEventListener('click', onLibraryGallery);
 
 let idMovie;
+let currentMovie;
 
 export function onLibraryGallery(e) {
   idMovie = Number(e.target.dataset.id);
@@ -36,11 +29,13 @@ export function onLibraryGallery(e) {
 
   let markup = '';
 
-  watchedMoviesFromLocalStorage = loadFromLocalStorage(KEY_WATCHED_MOVIES);
-  queueMoviesFromLocalStorage = loadFromLocalStorage(KEY_QUEUE_MOVIES);
+  const watchedMoviesFromLocalStorage =
+    loadFromLocalStorage(KEY_WATCHED_MOVIES);
+  const queueMoviesFromLocalStorage = loadFromLocalStorage(KEY_QUEUE_MOVIES);
 
   if (watchedMoviesFromLocalStorage[idMovie]) {
     currentMovie = watchedMoviesFromLocalStorage[idMovie];
+
     markup = createMarkupModal(watchedMoviesFromLocalStorage[idMovie]);
   } else if (queueMoviesFromLocalStorage[idMovie]) {
     currentMovie = queueMoviesFromLocalStorage[idMovie];
