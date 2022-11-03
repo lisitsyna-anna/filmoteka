@@ -11,12 +11,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-
+  @include bigmobile {
+    padding: 0 55px;
+  }
   @include tablet {
+    padding: 0;
     gap: 32px;
   }
 
-  @include desktop {
+  @include minidesktop {
     column-gap: 16px;
   }
 }
@@ -27,12 +30,15 @@
   transition-property: box-shadow, transform;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-animation;
+  // @include bigmobile {
+  //   max-width: 336px;
+  // }
 
   @include tablet {
     width: calc((100% - 32px) / 2);
   }
 
-  @include desktop {
+  @include minidesktop {
     width: calc((100% - 32px) / 3);
   }
 
@@ -51,20 +57,25 @@
 
 .frame__poster {
   width: 100%;
-  min-height: 402px;
+  height: 398px;
+  // min-height: 402px;
   object-fit: cover;
   border-radius: 5px;
 
+  @include bigmobile {
+    height: 440px;
+  }
+
   @include tablet {
-    min-height: 455px;
+    height: 455px;
   }
 
   @include minidesktop {
-    min-height: 560px;
+    height: 490px;
   }
 
   @include desktop {
-    min-height: 574px;
+    height: 574px;
   }
 }
 

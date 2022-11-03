@@ -9,8 +9,8 @@ import { openModalTeam } from './js/open-modal-team';
 import './js/switch-bg-theme';
 
 import { scrollFunction } from './js/button-up';
+import { refs } from './js/refs';
 
-import { onCliсkBtnWatch } from './js/API/get-movie-trailer';
 import { onCliсkBtnWatchGallery } from './js/API/get-movie-trailer';
 
 // import { onOpenQueueLibrary } from './js/queue-library';
@@ -29,3 +29,5 @@ window.addEventListener('load', function (e) {
 
 ///Запуск кнопки вверх при скролі
 window.addEventListener('scroll', scrollFunction);
+
+refs.galleryMovies.addEventListener('click', onCliсkBtnWatchGallery);

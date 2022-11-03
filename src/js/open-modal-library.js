@@ -5,7 +5,7 @@ import {
   checkLocalStorageWatchedMovies,
   checkLocalStorageQueueMovies,
 } from './local-storage';
-import { renderTrailerBtn } from './API/get-movie-trailer';
+import { renderBtn } from './API/get-movie-trailer';
 import {
   onEscKeyPress,
   onBackdropClick,
@@ -45,8 +45,7 @@ export function onLibraryGallery(e) {
   refs.body.classList.add('no-scroll');
 
   // render trailer
-  const selector = document.querySelector('.watch-trailer-btn');
-  renderTrailerBtn(idMovie, selector);
+  renderBtn();
 
   // close
   window.addEventListener('keydown', onEscKeyPress);
@@ -133,7 +132,7 @@ export function createMarkupModal({
               </button>
               <button type="button" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
               </div>
-               <button type="button" class="watch-trailer-btn is-hidden " data-id=${id} >Watch the trailer</button>
+               <button type="button" class="watch-trailer-btn-gallery is-hidden " data-id=${id} >Watch the trailer</button>
           </div>
   
             

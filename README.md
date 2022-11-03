@@ -18,6 +18,8 @@ _Привіт!_ :wave:
 **персональними тасками** а також **спільними завданнями**, котрі розподілював і
 контролював Team-lead, з допомогою Scrum-master:
 
+<a href="https://irenecreadora.github.io/filmoteka-dream-team/"><img src="https://prnt.sc/8x6nzg7QQjh7.png" alt="Filmoteka-team" border="0"></a>
+
 - [**Team Lead:** Iryna Makovoz](https://github.com/IreneCreadora)
 
 - [**Scrum master** & **Front-end developer**: Olha Zamlynska](https://github.com/olhazamlynska)
@@ -51,3 +53,4 @@ _Привіт!_ :wave:
 
 В результаті злагодженої командної роботи :handshake: вийшов наш проект: ⬇
 [_Welcome!_](https://irenecreadora.github.io/filmoteka-dream-team/) ⬇
+<a href="https://irenecreadora.github.io/filmoteka-dream-team/"><img src="https://prnt.sc/zX0SgGNEFlqx.png" alt="Filmoteka-team" border="0"></a>

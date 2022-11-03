@@ -6,7 +6,7 @@ import { IMAGE_URL } from './api-params';
 import { getGenres } from './get-genres';
 import pagination from '../pagination';
 
-import { renderTrailerBtn } from '../API/get-movie-trailer';
+import { renderBtn } from '../API/get-movie-trailer';
 
 const TRENDING_PATH = '/trending/movie/day';
 let page = 1;
@@ -84,10 +84,8 @@ export async function renderTrendingMovies() {
     refs.galleryMovies.insertAdjacentHTML('beforeend', markup);
 
     // render trailer btn
-    const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
-    selector.forEach(element => {
-      renderTrailerBtn(element.dataset.id, element);
-    });
+
+    renderBtn();
   } catch (error) {
     console.log('Something wrong with API', error.message);
   }
