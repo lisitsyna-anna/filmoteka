@@ -1,7 +1,13 @@
 <header class="header">
   <div class="container header__section">
     <div class="header__nav-container">
-      <a href="/src/index.html" class="logo">
+      <a
+        href="/src/index.html"
+        target="_self"
+        rel="noopener noreferrer"
+        title="Logo"
+        class="logo"
+      >
         <svg class="logo__icon" width="24" height="24">
           <use href="./images/icons.svg#icon-header-logo"></use>
         </svg>
@@ -10,10 +16,22 @@
       <nav class="header__nav">
         <ul class="header__list">
           <li class="header__item">
-            <a href="/src/index.html" class="header__item-link current">home</a>
+            <a
+              href="/src/index.html"
+              target="_self"
+              rel="noopener noreferrer"
+              title="Home page"
+              class="header__item-link current"
+              >home</a
+            >
           </li>
           <li class="header__item">
-            <a href="/src/library.html" class="header__item-link js-library"
+            <a
+              href="/src/library.html"
+              target="_self"
+              rel="noopener noreferrer"
+              title="My library"
+              class="header__item-link js-library"
               >my library</a
             >
           </li>
@@ -30,7 +48,11 @@
           placeholder="Movie search"
           class="header__form-input"
         />
-        <button type="submit" class="header__search-btn">
+        <button
+          type="submit"
+          aria-label="search-button"
+          class="header__search-btn"
+        >
           <svg class="header__form-icon" width="12" height="12">
             <use href="/src/images/icons.svg#icon-search"></use>
           </svg>
@@ -42,7 +64,11 @@
     <!-- Theme-switcher -->
     <div class="theme-switcher">
       <div class="theme-switcher__thumb"></div>
-      <button class="theme-switcher__btn">
+      <button
+        type="button"
+        aria-label="switch-theme"
+        class="theme-switcher__btn"
+      >
         <svg class="theme-switcher__icon" width="16" height="16">
           <use href="/src/images/icons.svg#icon-moon"></use>
         </svg>
