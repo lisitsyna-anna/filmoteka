@@ -56,15 +56,15 @@
   border-radius: 5px;
 
   @include tablet {
-    min-height: 455px;
+    height: 455px;
   }
 
   @include minidesktop {
-    min-height: 560px;
+    height: 650px;
   }
 
   @include desktop {
-    min-height: 574px;
+    height: 574px;
   }
 }
 
