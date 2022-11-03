@@ -1,4 +1,5 @@
-.pagination-container {
+.pagination-container,
+.pagination-library-container {
     @include centeredFlex();
 
     @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -9,6 +10,7 @@
         padding: 50px 0 60px 0;
     }
 }
+
 
 .pagination-button:not(:last-child),
 .dots {
@@ -34,6 +36,7 @@
     font-size: 12px;
     line-height: 1.333;
 }
+
 
 .pagination--current {
     //width: 40px;
@@ -66,8 +69,11 @@
 
 .pagination-button-arrow {
     color: $color-accent;
+    cursor: pointer;
 }
 
 .pagination-button-arrow-left {
     margin-right: 16px;
+    color: $color-accent;
+    cursor: pointer;
 }

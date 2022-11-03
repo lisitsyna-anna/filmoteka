@@ -6,6 +6,8 @@ import {
 } from './local-storage';
 import { refs } from './refs';
 import { renderBtn } from './API/get-movie-trailer';
+import pagination from './paginationLocalStorage';
+
 
 export const NOTHING_IMG =
   'https://cdn.pixabay.com/photo/2021/10/25/00/00/mike-wazowski-6739521_640.png';
@@ -17,15 +19,27 @@ if (refs.btnLibraryWatched) {
 export function onOpenWatchedLibrary() {
   refs.btnLibraryWatched.classList.add('library__btn--active');
   refs.btnLibraryQueue.classList.remove('library__btn--active');
-
+  const paginationBox = document.querySelector('.pagination-library-container');
   const moviesFromLocalStorage = loadFromLocalStorage(KEY_WATCHED_MOVIES);
 
   if (!moviesFromLocalStorage || !Object.keys(moviesFromLocalStorage).length) {
+    console.log(paginationBox);
     const markupNothing = createMarkupWhenLocalStorageEmpty();
-
+    paginationBox.innerHTML = '';
     refs.libraryGallery.innerHTML = markupNothing;
   } else {
-    const moviesToRender = Object.values(moviesFromLocalStorage);
+    pagination(Object.keys(moviesFromLocalStorage).length, 1);
+    const moviesArray = Object.values(moviesFromLocalStorage);
+    let moviesToRender = '';
+    if (window.innerWidth >= 1280) {
+      moviesToRender = moviesArray.slice(0, 9);
+    }
+    if (window.innerWidth >= 768 && window.innerWidth < 1280) {
+      moviesToRender = moviesArray.slice(0, 8);
+    }
+    if (window.innerWidth < 768) {
+      moviesToRender = moviesArray.slice(0, 4);
+    }
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
 
     refs.libraryGallery.innerHTML = markup;
@@ -46,17 +60,15 @@ export function createMarkupWatchedMovies({
 
   return `<li class="frame" data-id="${id}">
          <div class="frame__wrap">
-            <p class="frame__raiting">${
-              voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
-            }</p>
+            <p class="frame__raiting">${voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
+    }</p>
            <button type="button" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
-            src="${
-              posterPath
-                ? IMAGE_URL + posterPath
-                : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
-            }"
+            src="${posterPath
+      ? IMAGE_URL + posterPath
+      : 'https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-'
+    }"
             alt="${title ? title : 'Title coming soon'}"
             class="frame__poster"
             loading="lazy"
@@ -64,17 +76,14 @@ export function createMarkupWatchedMovies({
             </div>
 
           <div class="frame__info" data-id=${id}>
-            <p class="frame__title" data-id=${id}>${
-    title ? title : 'Title coming soon'
-  }</p>
-            <p class="frame__genres" data-id=${id}>${
-    genresForRender ? genresForRender : '---'
-  }</p>
-            <p class="frame__year" data-id=${id}>${
-    new Date(releaseDate).getFullYear()
+            <p class="frame__title" data-id=${id}>${title ? title : 'Title coming soon'
+    }</p>
+            <p class="frame__genres" data-id=${id}>${genresForRender ? genresForRender : '---'
+    }</p>
+            <p class="frame__year" data-id=${id}>${new Date(releaseDate).getFullYear()
       ? new Date(releaseDate).getFullYear()
       : '---'
-  }</p>
+    }</p>
          
           </div>
           </li>`;
@@ -122,11 +131,12 @@ export function loadWatchedMoviesFromLocalStorage() {
 
     refs.libraryGallery.innerHTML = markupNothing;
   } else {
-    const moviesToRender = Object.values(moviesFromLocalStorage);
+    /*const moviesToRender = Object.values(moviesFromLocalStorage);
     const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
 
     refs.libraryGallery.innerHTML = markup;
-    renderBtn();
+    renderBtn();*/
+    onOpenWatchedLibrary()
   }
 }
 
