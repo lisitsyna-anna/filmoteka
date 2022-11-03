@@ -17,3 +17,27 @@ export function createMarkupCookies() {
   </div>
 </div>`;
 }
+
+export function cookies() {
+  if (!Cookies.get(COOKIE_NAME)) {
+    document
+      .querySelector('body')
+      .insertAdjacentHTML('beforeend', createMarkupCookies());
+
+    const cookieAlert = document.querySelector('.js-cookies');
+
+    const cookieBtn = document.querySelector('.js-cookies-accept');
+
+    setTimeout(() => cookieAlert.classList.add('is-shown'), 1000);
+
+    cookieBtn.addEventListener('click', onAcceptBtnClick);
+
+    function onAcceptBtnClick(e) {
+      cookieAlert.classList.remove('is-shown');
+      setTimeout(() => cookieAlert.remove(), 1000);
+      Cookies.set(COOKIE_NAME, true, { expires: expires });
+    }
+  }
+}
+
+cookies();

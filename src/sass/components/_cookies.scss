@@ -57,8 +57,6 @@
 
 .cookies__body {
   @include tablet {
-    // display: flex;
-    // align-items: center;
     margin-bottom: 10px;
   }
 }
@@ -91,20 +89,34 @@
     transform: scale(1.03);
   }
 }
-.cookies__link:hover .cookies__text {
-  color: $color-text;
+
+@keyframes pulsate {
+  from {
+    transform: scale3d(1, 1, 1);
+    filter: drop-shadow(none);
+  }
+  50% {
+    transform: scale3d(1.15, 1.15, 1.15);
+    filter: drop-shadow(0 0 2px $color-accent);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+    filter: drop-shadow(none);
+  }
 }
+
 .cookies__btn {
   position: relative;
   bottom: 20px;
   height: 30px;
-  background-color: transparent;
+  display: flex;
+  align-items: center;
   border: 1px double $color-accent;
   border-radius: 10px;
   margin-left: auto;
+  background-color: transparent;
   color: $color-accent;
-  display: flex;
-  align-items: center;
+  animation: pulsate 2s infinite alternate;
   transition: box-shadow $transition-duration $transition-animation,
     color $transition-duration $transition-animation;
   @include mobile {
@@ -134,7 +146,9 @@
   }
   &:hover,
   &:focus {
-    box-shadow: 0 0 20px -5px #ff6b01;
-    color: $color-text-light;
+    box-shadow: 0 0 20px -5px $color-accent;
+    background-color: $color-accent;
+    color: $color-text-lighter;
+    animation: none;
   }
 }
