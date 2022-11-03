@@ -11,8 +11,8 @@ const KEY_QUEUE_MOVIES = 'queueMovies';
 const paginationBox = document.querySelector('.pagination-library-container');
 console.log(paginationBox);
 paginationBox.addEventListener('click', handlerPagination);
-import { localQueueMovies } from './queue-library';
-console.log('localQueueMovies', localQueueMovies);
+//import { localQueueMovies } from './queue-library';
+//console.log('localQueueMovies', localQueueMovies);
 
 let globalCurrentpage = 0;
 /** 
@@ -90,12 +90,17 @@ function handlerPagination(evt) {
 
     const page = Number(evt.target.textContent);
     let localQueueMovies = loadFromLocalStorage(KEY_QUEUE_MOVIES);
-    pagination(Object.keys(localQueueMovies).length, page);
+    /*if (localQueueMovies || Object.keys(localQueueMovies).length) {
+    }*/
+    //pagination(Object.keys(localQueueMovies).length, page);
 
     if (!localQueueMovies || !Object.keys(localQueueMovies).length) {
+        console.log('people');
         const markupNothing = createMarkupWhenLocalStorageEmpty();
         refs.libraryGallery.innerHTML = markupNothing;
+
     } else {
+        pagination(Object.keys(localQueueMovies).length, page);
         console.log(Number(page - 1) * 9);
         console.log(Number(page) * 9);
 
