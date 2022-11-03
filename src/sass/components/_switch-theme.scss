@@ -332,4 +332,15 @@ body.dark-theme {
   & .watch-trailer-btn:focus {
     background-color: $color-accent-secondary;
   }
+
+  & .cookies {
+    background-color: $bg-body-dark;
+    box-shadow: 0 -6px 40px 6px #ff6b01, 0 -1px 5px #ff6b01;
+  }
+  & .cookies__title {
+    color: $color-text-lighter;
+  }
+  & .cookies__link {
+    color: $color-text-lighter;
+  }
 }

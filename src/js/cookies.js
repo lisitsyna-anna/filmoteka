@@ -10,10 +10,10 @@ export function createMarkupCookies() {
   </div>
   <div class="cookies__body">
     <p class="cookies__text">
-      We use cookies for improving user experience, analytics and marketing.
-      <a class="cookies__link" href="#">Privacy Policy</a>
+      We use cookies to enhance your browsing experience and analyze our traffic.
+      <a class="cookies__link" href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank" title="Wikipedia with meaning HTTP cookie">Privacy Policy</a>
     </p>
-    <button class=" cookies__btn js-cookies-accept">Accept!</button>
+    <button aria-label="Accept" type="button" class="cookies__btn js-cookies-accept">Accept!</button>
   </div>
 </div>`;
 }

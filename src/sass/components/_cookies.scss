@@ -2,11 +2,9 @@
   position: fixed;
   left: calc(10px / 2);
   bottom: calc(10px / 2);
-  transform: translateX(-120%) scale(0.8);
-
   max-width: calc(100% - 10px);
   padding: 15px;
-
+  transform: translateX(-120%) scale(0.8);
   background-color: $bg-body;
   border-radius: 20px;
   box-shadow: 5px -5px 40px $color-accent;
@@ -19,7 +17,6 @@
     height: 120px;
   }
   @include bigmobile {
-    width: 300px;
     height: 100px;
     padding: 10px;
   }
@@ -118,7 +115,8 @@
   color: $color-accent;
   animation: pulsate 2s infinite alternate;
   transition: box-shadow $transition-duration $transition-animation,
-    color $transition-duration $transition-animation;
+    color $transition-duration $transition-animation,
+    background-color $transition-duration $transition-animation;
   @include mobile {
     bottom: 23px;
     margin-top: calc(10px / 2);
@@ -127,7 +125,7 @@
   @include bigmobile {
     margin-top: calc(5px / 2);
     height: 20px;
-    bottom: 10px;
+    bottom: 1px;
   }
 
   @include tablet {
