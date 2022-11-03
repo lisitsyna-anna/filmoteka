@@ -22,13 +22,6 @@ import {
 
 import { onCliсkBtnWatchGallery } from './js/API/get-movie-trailer';
 
-// import { onOpenQueueLibrary } from './js/queue-library';
-
-// import { onOpenWatchedLibrary } from './js/watched-library';
-
-// import { loadWatchedMoviesFromLocalStorage } from './js/watched-library';
-// import { onLibraryGallery } from './js/open-modal-library';
-
 ///Запуск спінера при завантаженні
 spinnerPlay();
 window.addEventListener('load', function (e) {

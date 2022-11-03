@@ -25,6 +25,7 @@ let globalCurrentpage = 0;
  */
 let allPages = 1;
 export default function pagination(allQueueMovies, currentPage) {
+  console.log('pagination:', allQueueMovies, ' ', currentPage);
   if (window.innerWidth >= 1280) {
     allPages = Math.ceil(allQueueMovies / 9);
   }
@@ -82,6 +83,9 @@ export default function pagination(allQueueMovies, currentPage) {
 let currentPage = 1;
 
 function handlerPagination(evt) {
+  if (!refs.btnLibraryQueue && !refs.btnLibraryWatched) {
+    return;
+  }
   if (evt.target.nodeName !== 'LI') {
     return;
   }
@@ -99,10 +103,12 @@ function handlerPagination(evt) {
   const page = currentPage;
 
   let localMovies;
-  if (refs.btnLibraryQueue.classList.contains('library__btn--active')) {
-    localMovies = loadFromLocalStorage(KEY_QUEUE_MOVIES);
-  } else {
-    localMovies = loadFromLocalStorage(KEY_WATCHED_MOVIES);
+  if (refs.btnLibraryQueue) {
+    if (refs.btnLibraryQueue.classList.contains('library__btn--active')) {
+      localMovies = loadFromLocalStorage(KEY_QUEUE_MOVIES);
+    } else {
+      localMovies = loadFromLocalStorage(KEY_WATCHED_MOVIES);
+    }
   }
 
   pagination(Object.keys(localMovies).length, page);
