@@ -18,6 +18,10 @@ export async function onFormSubmit(e) {
   const searchResult = e.target.elements.searchQuery.value.trim().toLowerCase();
 
   if (searchResult) {
+    const storageValue = JSON.stringify(searchResult);
+    localStorage.setItem('searchValue', storageValue);
+    const storagePage = JSON.stringify(page);
+    localStorage.setItem('page', storagePage);
     try {
       const markupPictures = await getSearchMovies(searchResult, page);
 
