@@ -274,6 +274,7 @@ const markup = ` <div class="modal__container">
   </div>
 </div>
 `;
+const body = document.querySelector('body');
 
 refs.link.addEventListener('click', openModalTeam);
 export function openModalTeam(event) {
@@ -281,6 +282,9 @@ export function openModalTeam(event) {
   event.preventDefault();
   const modalTeam = basicLightbox.create(markup);
   modalTeam.show();
+  if (modalTeam.show()) {
+    body.style.overflow = 'hidden';
+  }
   const modalClose = document.querySelector('.modal__close');
   // console.log(modalClose);
   modalClose.addEventListener('click', event => {
@@ -302,6 +306,7 @@ export function openModalTeam(event) {
     // console.log(event.target.classList.value);
     if (event.target.classList.value === 'basicLightbox__placeholder') {
       modalTeam.close();
+      body.style.overflow = 'scroll';
       window.removeEventListener('click', clickOutsideModal);
     }
   }
