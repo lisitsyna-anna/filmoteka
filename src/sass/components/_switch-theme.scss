@@ -217,17 +217,34 @@ body.dark-theme {
   & .dots {
     background-color: $bg-body-dark;
     color: $color-text-lighter;
-    @include font(16px, 1.33, 500, null);
+    @include font(9px, 1.33, 500, null);
+    transition: text-shadow $transition-duration $transition-animation;
+    @include tablet {
+      @include font(16px, 1.33, 500, null);
+    }
   }
   & .pagination-button-arrow-left,
   & .pagination-button-arrow {
     color: $color-accent;
-    @include font(16px, 1.33, 500, null);
+    @include font(9px, 1.33, 500, null);
     cursor: pointer;
+    transition: text-shadow $transition-duration $transition-animation;
+    @include tablet {
+      @include font(16px, 1.33, 500, null);
+    }
   }
   & .pagination--current {
     background-color: $color-accent;
     color: $color-text-lighter;
+  }
+  & .pagination-button:hover,
+  & .pagination-button-arrow-left:hover,
+  & .pagination-button-arrow:hover,
+  & .pagination-button:focus,
+  & .pagination-button-arrow-left:focus,
+  & .pagination-button-arrow:focus {
+    text-shadow: 1px 1px 2px $color-accent-secondary, 0 0 1em $color-text-light,
+      0 0 0.2em $color-text-lighter;
   }
 
   //   footer
