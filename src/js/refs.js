@@ -11,11 +11,8 @@ export const refs = {
   wrapperBtnUP: document.querySelector('.btn-up-wrapper'),
   btnUp: document.querySelector('.btn-up-wrapper__btn'),
   body: document.querySelector('body'),
-
   link: document.querySelector('.footer__link'),
-
   modalBackdropTrailer: document.querySelector('.backdrop-trailer'),
-
   libraryLink: document.querySelector('.js-library-link'),
   btnLibraryQueue: document.querySelector('.queue__btn'),
   btnLibraryWatched: document.querySelector('.watched__btn'),

@@ -70,7 +70,7 @@ const objects = [
 ];
 
 const markup = ` <div class="modal__container">
-  <button class="modal__close" type="button">
+  <button class="modal__close" type="button" aria-label="close">
     <div class="modal__close-first"></div>
     <div class="modal__close-second"></div>
   </button>
