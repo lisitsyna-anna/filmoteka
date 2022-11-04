@@ -23,7 +23,7 @@ let currentMovie;
 export function onLibraryGallery(e) {
   idMovie = Number(e.target.dataset.id);
   const film = e.target.closest('.frame');
-  if (!film) {
+  if (!film || e.target.classList.contains('watch-trailer-btn-gallery')) {
     return;
   }
 
