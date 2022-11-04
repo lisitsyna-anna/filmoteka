@@ -151,9 +151,9 @@ function createMarkupModal({
             <button type="button" class="button-watched__modal js-add-watched">
                 ${textBtnWatched}
             </button>
-            <button type="button" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
+            <button type="button" aria-label="queue modal" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
             </div>
-             <button type="button" class="watch-trailer-btn-gallery is-hidden " data-id=${id} >Watch the trailer</button>
+             <button type="button" aria-label="watched modal" class="watch-trailer-btn-gallery is-hidden " data-id=${id} >Watch the trailer</button>
         </div>
         `;
 }

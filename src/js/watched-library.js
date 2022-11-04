@@ -63,7 +63,7 @@ export function createMarkupWatchedMovies({
             <p class="frame__raiting">${
               voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
             }</p>
-           <button type="button" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
+           <button type="button" aria-label="watch trailer" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
             src="${
