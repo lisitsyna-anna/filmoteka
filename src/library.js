@@ -1,16 +1,11 @@
 import { spinnerPlay, spinnerStop } from './js/spinner';
-// import { renderTrendingMovies } from './js/API/get-trending';
 
-// import { renderModalMovie } from './js/API/get-movie-info';
-
-// import { onFormSubmit } from './js/gallery';
 import { openModalTeam } from './js/open-modal-team';
 
 import './js/switch-bg-theme';
 
 import { scrollFunction } from './js/button-up';
 
-// import { onCliсkBtnWatch } from './js/API/get-movie-trailer';
 import { onCliсkBtnWatchGallery } from './js/API/get-movie-trailer';
 
 import { onOpenQueueLibrary } from './js/queue-library';
