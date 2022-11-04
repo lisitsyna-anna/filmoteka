@@ -148,12 +148,12 @@ function createMarkupModal({
           <p class="about-text__modal about-scrollbar">${overview}
           </p>
           <div class="buttons-modal">
-            <button type="button" class="button-watched__modal js-add-watched">
+            <button aria-label="add or remove from watched" type="button" class="button-watched__modal js-add-watched">
                 ${textBtnWatched}
             </button>
-            <button type="button" aria-label="queue modal" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
+            <button type="button" aria-label="add or remove from queue" class="button-queue__modal js-add-queue">${textBtnQueue}</button>
             </div>
-             <button type="button" aria-label="watched modal" class="watch-trailer-btn-gallery is-hidden " data-id=${id} >Watch the trailer</button>
+             <button type="button" aria-label="watch the trailer" class="watch-trailer-btn-gallery is-hidden " data-id=${id} >Watch the trailer</button>
         </div>
         `;
 }

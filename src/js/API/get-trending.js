@@ -43,7 +43,7 @@ export function createMarkup({
             <p class="frame__raiting">${
               voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
             }</p>
-           <button type="button" aria-label="watch trailer" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
+           <button type="button" aria-label="watch the trailer" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
             src="${
@@ -77,7 +77,8 @@ export function createMarkup({
 export async function renderTrendingMovies() {
   let firstPage = 1;
   try {
-    const moviesList = await getTrendingMovies(firstPage);
+    let moviesList = await getTrendingMovies(firstPage);
+    moviesList = moviesList.filter(movie => movie.adult === false);
 
     const markup = [...moviesList].map(createMarkup).join('');
 

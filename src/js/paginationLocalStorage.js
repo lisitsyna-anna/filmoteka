@@ -25,7 +25,6 @@ let globalCurrentpage = 0;
  */
 let allPages = 1;
 export default function pagination(allQueueMovies, currentPage) {
-  console.log('pagination:', allQueueMovies, ' ', currentPage);
   if (window.innerWidth >= 1280) {
     allPages = Math.ceil(allQueueMovies / 9);
   }
@@ -152,60 +151,3 @@ function handlerPagination(evt) {
     }
   }
 }
-
-/*function handlerPagination(evt) {
-    if (evt.target.nodeName !== 'LI') {
-        return;
-    }
-    if (evt.target.textContent === '...') {
-        return;
-    }
-
-    const page = Number(evt.target.textContent);
-
-    let localWatchedMovies = loadFromLocalStorage(KEY_WATCHED_MOVIES);
-    pagination(Object.keys(localWatchedMovies).length, page);
-
-    if (!localWatchedMovies || !Object.keys(localWatchedMovies).length) {
-        const markupNothing = createMarkupWhenLocalStorageEmpty();
-        refs.libraryGallery.innerHTML = markupNothing;
-    } else {
-        console.log(Number(page - 1) * 9);
-        console.log(Number(page) * 9);
-
-        const moviesArray = Object.values(localWatchedMovies);
-        let moviesToRender = [];
-        console.log('PaginationStorage', moviesToRender);
-        if (window.innerWidth >= 1280) {
-            moviesToRender = moviesArray.slice(
-                Number(page - 1) * 9,
-                Number(page) * 9
-            );
-        }
-        if (window.innerWidth >= 768 && window.innerWidth < 1280) {
-            moviesToRender = moviesArray.slice(
-                Number(page - 1) * 8,
-                Number(page) * 8
-            );
-
-        }
-        if (window.innerWidth < 768) {
-            moviesToRender = moviesArray.slice(
-                Number(page - 1) * 4,
-                Number(page) * 4
-            );
-        }
-        console.log(moviesToRender);
-
-        const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
-        if (refs.libraryGallery) {
-            refs.libraryGallery.innerHTML = markup;
-
-            const selector = document.querySelectorAll('.watch-trailer-btn-gallery');
-
-            selector.forEach(element => {
-                renderTrailerBtn(element.dataset.id, element);
-            });
-        }
-    }
-}*/
