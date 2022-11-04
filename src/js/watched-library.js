@@ -63,7 +63,7 @@ export function createMarkupWatchedMovies({
             <p class="frame__raiting">${
               voteAverage.toFixed(1) ? voteAverage.toFixed(1) : '---'
             }</p>
-           <button type="button" aria-label="watch trailer" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
+           <button type="button" aria-label="watch the trailer" class="watch-trailer-btn-gallery is-hidden" data-id=${id} >Watch the trailer</button>
           <img
             data-id="${id}"
             src="${
@@ -120,7 +120,7 @@ export function createMarkupWhenLocalStorageEmpty() {
     <div class="container-nothing__content">
         <h2 class="container-nothing__title">Ouhh... it's empty in here!</h2>
         <p class="container-nothing__text">
-        <a class="container-nothing__link" href="./index.html">Go back</a> and
+        <a title="Link to main page" class="container-nothing__link" href="./index.html">Go back</a> and
         add your favorite movies.
         </p>
     </div>
@@ -136,11 +136,6 @@ export function loadWatchedMoviesFromLocalStorage() {
     paginationBox.innerHTML = '';
     refs.libraryGallery.innerHTML = markupNothing;
   } else {
-    /*const moviesToRender = Object.values(moviesFromLocalStorage);
-    const markup = moviesToRender.map(createMarkupWatchedMovies).join('');
-
-    refs.libraryGallery.innerHTML = markup;
-    renderBtn();*/
     onOpenWatchedLibrary();
   }
 }

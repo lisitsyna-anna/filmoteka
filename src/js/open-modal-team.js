@@ -70,7 +70,7 @@ const objects = [
 ];
 
 const markup = ` <div class="modal__container">
-  <button class="modal__close" type="button" aria-label="close">
+  <button class="modal__close" type="button" aria-label="close modal">
     <div class="modal__close-first"></div>
     <div class="modal__close-second"></div>
   </button>
@@ -92,6 +92,7 @@ const markup = ` <div class="modal__container">
             <a
               href="https://github.com/IreneCreadora"
               target="_blank"
+              title="Link to Git Hub"
             >
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
@@ -116,6 +117,7 @@ const markup = ` <div class="modal__container">
             <a
               href="https://github.com/olhazamlynska"
               target="_blank"
+              title="Link to Git Hub"
             >
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
@@ -137,7 +139,7 @@ const markup = ` <div class="modal__container">
           <p class="team__item-name">Anna lisitsyna</p>
           <p class="team__item-role">Main developer</p>
           <div class="team__item-wrap">
-            <a href="https://github.com/lisitsyna-ann" target="_blank">
+            <a href="https://github.com/lisitsyna-ann" target="_blank"  title="Link to Git Hub">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
                 alt=""
@@ -157,7 +159,7 @@ const markup = ` <div class="modal__container">
           <p class="team__item-name">Bohdan Orlovskyi</p>
           <p class="team__item-role">Developer</p>
           <div class="team__item-wrap">
-            <a href="https://github.com/Bohdan100" target="_blank">
+            <a href="https://github.com/Bohdan100" target="_blank"  title="Link to Git Hub">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
                 alt=""
@@ -177,7 +179,7 @@ const markup = ` <div class="modal__container">
           <p class="team__item-name">Nelia Bochenkova</p>
           <p class="team__item-role">Developer</p>
           <div class="team__item-wrap">
-            <a href="https://github.com/Nelia95" target="_blank">
+            <a href="https://github.com/Nelia95" target="_blank"  title="Link to Git Hub">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
                 alt=""
@@ -196,7 +198,7 @@ const markup = ` <div class="modal__container">
           <div class="team__item-data"><p class="team__item-name team__item--font">Volodymyr Tymoshchuk</p>
           <p class="team__item-role">Developer</p>
           <div class="team__item-wrap">
-            <a href="https://github.com/Vobzilla" target="_blank">
+            <a href="https://github.com/Vobzilla" target="_blank" title="Link to Git Hub">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
                 alt=""
@@ -217,7 +219,7 @@ const markup = ` <div class="modal__container">
           <p class="team__item-name">Sofiia Korostenska</p>
           <p class="team__item-role">Developer</p>
           <div class="team__item-wrap">
-            <a href="https://github.com/SofiiaKorost" target="_blank">
+            <a href="https://github.com/SofiiaKorost" target="_blank"  title="Link to Git Hub">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
                 alt=""
@@ -237,7 +239,7 @@ const markup = ` <div class="modal__container">
           <p class="team__item-name">Mykola Zaikovskyi</p>
           <p class="team__item-role">Developer</p>
           <div class="team__item-wrap">
-            <a href="https://github.com/mykola1982" target="_blank">
+            <a href="https://github.com/mykola1982" target="_blank" title="Link to Git Hub">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
                 alt=""
@@ -258,7 +260,7 @@ const markup = ` <div class="modal__container">
           <p class="team__item-name">Yuliia Tymchuk</p>
           <p class="team__item-role">Developer</p>
           <div class="team__item-wrap">
-            <a href="https://github.com/yuliia-tymchuk " target="_blank">
+            <a href="https://github.com/yuliia-tymchuk " target="_blank" title="Link to Git Hub">
               <img
                 src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png"
                 alt=""
@@ -278,7 +280,6 @@ const body = document.querySelector('body');
 
 refs.link.addEventListener('click', openModalTeam);
 export function openModalTeam(event) {
-  // console.log('hello');
   event.preventDefault();
   const modalTeam = basicLightbox.create(markup);
   modalTeam.show();
@@ -286,15 +287,13 @@ export function openModalTeam(event) {
     body.style.overflow = 'hidden';
   }
   const modalClose = document.querySelector('.modal__close');
-  // console.log(modalClose);
+
   modalClose.addEventListener('click', event => {
     modalTeam.close();
   });
   window.addEventListener('keydown', closeModalTeam);
   window.addEventListener('click', clickOutsideModal);
   function closeModalTeam(event) {
-    // console.log(event.code);
-
     if (event.code !== 'Escape') {
       return;
     }
@@ -303,7 +302,6 @@ export function openModalTeam(event) {
     window.removeEventListener('keydown', closeModalTeam);
   }
   function clickOutsideModal(event) {
-    // console.log(event.target.classList.value);
     if (event.target.classList.value === 'basicLightbox__placeholder') {
       modalTeam.close();
       body.style.overflow = 'scroll';
