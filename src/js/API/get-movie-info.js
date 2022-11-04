@@ -36,7 +36,7 @@ if (refs.galleryMovies) {
 
 async function openModal(e) {
   const film = e.target.closest('.frame');
-  if (!film) {
+  if (!film || e.target.classList.contains('watch-trailer-btn-gallery')) {
     return;
   }
   // create
