@@ -11,39 +11,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-
+  @include bigmobile {
+    padding: 0 55px;
+  }
   @include tablet {
+    padding: 0;
     gap: 32px;
   }
 
-  @include desktop {
+  @include minidesktop {
     column-gap: 16px;
   }
 }
-
-// Нижче навела два варіанти назв для стилів картки в бібліотеці
-
-// .movie-card {
-// }
-// .movie-card__poster {
-// }
-// .movie-card__title {
-// }
-// .movie-card__genres {
-// }
-// .movie-card__year {
-// }
-
-// .library-frame {
-// }
-// .library-frame__poster {
-// }
-// .library-frame__title {
-// }
-// .library-frame__genres {
-// }
-// .library-frame__year {
-// }
 
 .container-nothing {
   display: flex;

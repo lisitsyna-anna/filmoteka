@@ -30,9 +30,6 @@
   transition-property: box-shadow, transform;
   transition-duration: $transition-duration;
   transition-timing-function: $transition-animation;
-  // @include bigmobile {
-  //   max-width: 336px;
-  // }
 
   @include tablet {
     width: calc((100% - 32px) / 2);

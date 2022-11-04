@@ -24,7 +24,7 @@ _Привіт!_ :wave:
 
 - [**Scrum master** & **Front-end developer**: Olha Zamlynska](https://github.com/olhazamlynska)
 
-- [**Front-end developer**: Anna Lisitsyna](https://github.com/lisitsyna-anna)
+- [**Main developer**: Anna Lisitsyna](https://github.com/lisitsyna-anna)
 
 - [**Front-end developer**: Bohdan Orlovskyi](https://github.com/Bohdan100)
 
@@ -51,6 +51,5 @@ _Привіт!_ :wave:
 - закріпили знання з HTML і CSS.
 - закріпили отримані на курсі навички по JavaScript.
 
-В результаті злагодженої командної роботи :handshake: вийшов наш проект: ⬇
-[_Welcome!_](https://irenecreadora.github.io/filmoteka-dream-team/) ⬇
-
+В результаті злагодженої командної роботи :handshake: вийшов наш проект:
+[_Welcome!_](https://irenecreadora.github.io/filmoteka-dream-team/)
