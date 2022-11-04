@@ -53,4 +53,4 @@ _Привіт!_ :wave:
 
 В результаті злагодженої командної роботи :handshake: вийшов наш проект: ⬇
 [_Welcome!_](https://irenecreadora.github.io/filmoteka-dream-team/) ⬇
-<a href="https://irenecreadora.github.io/filmoteka-dream-team/"><img src="https://i.ibb.co/BrjhNGG/image.png" alt="Filmoteka-team" border="0"></a>
+
