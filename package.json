@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://IreneCreadora.github.io/filmoteka-dream-team",
+  "homepage": "https://lisitsyna-anna.github.io/filmoteka-team-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /filmoteka-dream-team/"
+    "build": "parcel build src/*.html --public-url /filmoteka-team-project/"
   },
   "repository": {
     "type": "git",
