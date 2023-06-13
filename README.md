@@ -58,7 +58,7 @@ The Filmoteka website was built using the following technologies:
 
 - [**Scrum master** & **Front-end developer**: Olha Zamlynska](https://github.com/olhazamlynska)
 
-- [**Main developer**: Anna Lisitsyna](https://github.com/lisitsyna-anna)
+- [**Front-end developer**: Anna Lisitsyna](https://github.com/lisitsyna-anna)
 
 - [**Front-end developer**: Bohdan Orlovskyi](https://github.com/Bohdan100)
 
